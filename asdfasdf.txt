@@ -1,0 +1,8 @@
+1) Modify test to include testDate
+	Modify the multiplicities
+
+2) no methods
+
+3) recheck multiplicities
+
+4) He made the distinction between person/member: person is a member, and member is the "user" class
