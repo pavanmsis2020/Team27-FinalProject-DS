@@ -3,7 +3,7 @@ Team 27: Kendall Gibson, Nathaniel Pellant, Destin Schreiner, Pavan Yaddanapudi
 BUS-X 501 - Data & Systems - Final Project
 Professor Tom Gregory
 */
-
+/*hello*/
 /* Source: https://www.w3schools.com/sql/sql_foreignkey.asp */
 CREATE TABLE Person(
     personID INT AUTO_INCREMENT,
