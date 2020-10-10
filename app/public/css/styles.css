@@ -28,3 +28,60 @@ nav, .dropdown-menu {
 /*
 IMAGES, TEXT/COLORS, TABLES
 */
+
+/* Kendall added */
+body {
+  background-color: rgb(204,204,204);
+}
+
+header, nav, main, footer {
+  margin-bottom: 10px;
+}
+main {
+  background-color: white;
+}
+.button_group{
+  margin-top: 20px;
+}
+.home_buttons{
+  border: solid rgb(204,204,204);
+  background-color: rgb(52,52,52);
+  color: rgb(250, 225, 50);
+  text-decoration: none;
+  padding: 15px;
+  font-size: 25px;
+}
+
+.home_buttons:hover{
+  background-color: black;
+  color: rgb(250, 225, 50);
+  border-color: rgb(250, 225, 50);
+}
+
+.home_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 200px;
+  margin-bottom: 15px;
+}
+
+.contact_us{
+  text-align: center;
+}
+
+footer {
+  background-color: rgb(52,52,52);
+  color: white;
+  height: 25px;
+}
+
+.footer_words{
+  margin-left: 70%;
+}
+
+.placeholder{
+  background-color: grey;
+  text-align: center;
+  color: black; 
+}
