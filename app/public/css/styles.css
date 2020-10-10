@@ -58,6 +58,21 @@ main {
   border-color: rgb(250, 225, 50);
 }
 
+.view_buttons{
+  border: solid rgb(204,204,204);
+  background-color: rgb(52,52,52);
+  color: rgb(250, 225, 50);
+  text-decoration: none;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.view_buttons:hover{
+  background-color: black;
+  color: rgb(250, 225, 50);
+  border-color: rgb(250, 225, 50);
+}
+
 .home_img {
   display: block;
   margin-left: auto;
@@ -83,5 +98,5 @@ footer {
 .placeholder{
   background-color: grey;
   text-align: center;
-  color: black; 
+  color: black;
 }
