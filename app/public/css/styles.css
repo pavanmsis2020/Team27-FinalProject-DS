@@ -79,3 +79,9 @@ footer {
 .footer_words{
   margin-left: 70%;
 }
+
+.placeholder{
+  background-color: grey;
+  text-align: center;
+  color: black; 
+}
