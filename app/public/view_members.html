@@ -80,62 +80,76 @@
 
     <div>
       <main class="row">
-          <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Report: Expired Certifications</h1>
+          <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">View Member Records</h1>
+          <!-- Search form -->
+<form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+    aria-label="Search">
+</form>
         <table class="table table-bordered table-dark">
           <thead>
             <tr>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Radio Number</th>
+              <th scope="col">Member Name</th>
+              <th scope="col">Date Earned</th>
+              <th scope="col">Expiration</th>
+              <th scope="col">Edit Table</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" colspan="3" class="placeholder">Station 72</th>
+              <th scope="row" colspan="4" class="placeholder">Firefighter I</th>
             </tr>
             <tr>
-              <td scope="row">Hillol</td>
-              <td>Bala</td>
-              <td>277</td>
+              <td scope="row">Tom Greggory</td>
+              <td>5/29/2019</td>
+              <td>5/29/2022</td>
+              <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
             <tr>
-              <td scope="row">Michael</td>
-              <td>Frutiger</td>
-              <td>285</td>
+              <td scope="row">Hillol Bala</td>
+              <td>4/30/2018</td>
+              <td>4/30/2021</td>
+              <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
             <tr>
-              <th scope="row" colspan="3" class="placeholder">Station 88</th>
+              <td scope="row">Bipin Prabhakar</td>
+              <td>4/30/2018</td>
+              <td>4/30/2021</td>
+              <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
             <tr>
-              <td scope="row">Tom</td>
-              <td>Greggory</td>
-              <td>555</td>
+              <td scope="row">Alexander Lopes</td>
+              <td>2/17/2018</td>
+              <td>2/17/2021</td>
+              <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
             <tr>
-              <td scope="row">Tiger</td>
-              <td>Woods</td>
-              <td>654</td>
+                <td scope="row">Russel Clark</td>
+                <td>11/03/2017</td>
+                <td>11/03/2020</td>
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
             <tr>
-                <td scope="row">Mark</td>
-                <td>Pauka</td>
-                <td>543</td>
+              <td scope="row">Keith Dayton</td>
+              <td>11/03/2017</td>
+              <td>11/03/2020</td>
+              <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
             <tr>
-              <th scope="row" colspan="3" class="placeholder">Station 95</th>
-            </tr>
-            <tr>
-              <td scope="row">Jacob</td>
-              <td>Ekhart</td>
-              <td>754</td>
-            </tr>
-            <tr>
-                <td scope="row">Thomas</td>
-                <td>Tank</td>
-                <td>800</td>
+                <td scope="row">Michael Frutiger</td>
+                <td>11/03/2017</td>
+                <td>11/03/2017</td>
+                <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
           </tbody>
         </table>
+        <div class="button_group">
+            <a href="#" class="view_buttons">Add New</a>
+        </div>
+        <div class="button_group">
+            <a href="#" class="view_buttons">Delete</a>
+        </div>
       </main>
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>
