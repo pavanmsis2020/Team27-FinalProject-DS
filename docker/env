@@ -6,7 +6,7 @@
 #
 # Do NOT ever include your *real* env in version control
 
-MYSQL_DATABASE=msis_triage
-MYSQL_HOST=server_name.aws.com
-MYSQL_USER=user_name
-MYSQL_PASSWORD=password
+MYSQL_DATABASE=ocfr
+MYSQL_HOST=ocfr.cmxpwxkyh52f.us-east-1.rds.amazonaws.com
+MYSQL_USER=team27admin
+MYSQL_PASSWORD=team27password
