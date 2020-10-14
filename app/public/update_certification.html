@@ -39,10 +39,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,10 +68,10 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="expired_certifications.html">Expired Certifications</a>
-                <a class="dropdown-item" href="members_by_station.html">Members by Station & Radio Number</a>
+                <a class="dropdown-item" href="#">Members by Station & Radio Number</a>
               </div>
             </li>
-          <!--  <form class="form-inline my-2 my-lg-0">
+            <!--  <form class="form-inline my-2 my-lg-0">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login (Are we doing this?)</button>
             </form> -->
           </ul>
@@ -80,35 +80,40 @@
 
     <div>
       <main class="row">
-          <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">About Us</h1>
+          <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Update Certifications</h1>
+          <!-- Search form -->
+        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+            aria-label="Search">
+        </form>
 
-          <img src="img/oconee_county_view.jpg" alt="View of Oconee County" class="img-responsive home_img">
+        <div class="form-group">
+          <!-- Add label -->
+          <label for="">Certification ID</label>
+          <!-- Add id -->
+          <input type="text" class="form-control" id="" placeholder="">
+        </div>
+        <div class="form-group">
+          <!-- Add label -->
+          <label for="">Certification Agency</label>
+          <!-- Add id -->
+          <input type="text" class="form-control" id="" placeholder="">
+        </div>
+        <div class="form-group">
+          <!-- Add label -->
+          <label for="">Certification Name</label>
+          <!-- Add id -->
+          <input type="text" class="form-control" id="" placeholder="">
+        </div>
 
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h3>Mission</h3>
-              <p>The mission of Oconee County Fire Rescue is to save lives and property, to strive to provide the best emergency services possible, and to promote fire safety to make Oconee County a safer place to live.</p>
-          </div>
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h3>Responsibilities</h3>
-              <p>Fire Rescue is responsible for planning, coordinating and implementing the fire prevention and suppression activities of seven volunteer fire stations in Oconee County.  These seven fire stations are staffed with 180 volunteer firefighters and first responders, who provide Fire and EMS support services to Oconee County.</p>
-              <p>Fire Rescue is also responsible for:  responding to all structure fires in Oconee County and other applicable calls; keeping updated records for ISO (Insurance Services Organization) and working to achieve the best ISO rating; coordinating joint training for all stations; providing fire safety classes for schools and daycare centers; working with local and state agencies on arson investigations; recruiting new volunteer firefighters and coordinating volunteer firefighter training.</p>
-          </div>
-          <p>&nbsp;</p>
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <h3>Contact Us</h3>
-          </div>
-          <div class="contact_us col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <p><b>Physical Address</b></p>
-              <p>1291 Greensboro Highway <br>Watkinsville, GA 30677</p>
-          </div>
-          <div class="contact_us col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <p><b>Phone</b></p>
-              <p>706-769-3975</p>
-          </div>
-          <div class="contact_us col-lg-4 col-md-4 col-sm-12 col-xs-12">
-              <p><b>Mailing Address</b></p>
-              <p>P.O. Box 732 <br> Watkinsville, GA 30677</p>
-          </div>
+
+        <div class="button_group">
+            <a href="#" class="view_buttons">Add New</a>
+        </div>
+        <div class="button_group">
+            <a href="#" class="view_buttons">Delete</a>
+        </div>
       </main>
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>
