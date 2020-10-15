@@ -78,7 +78,7 @@
         </div>
       </nav>
 
-    <div>
+    <div id="members">
       <main class="row">
           <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">View Member Records</h1>
           <!-- Search form -->
@@ -90,57 +90,23 @@
         <table class="table table-bordered table-dark">
           <thead>
             <tr>
-              <th scope="col">Member Name</th>
-              <th scope="col">Date Earned</th>
-              <th scope="col">Expiration</th>
+              <th scope="col">Member First Name</th>
+              <th scope="col">Member Last Name</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
               <th scope="col">Edit Table</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" colspan="4" class="placeholder">Firefighter I</th>
+              <th scope="row" colspan="5" class="placeholder">Firefighter I</th>
             </tr>
-            <tr>
-              <td scope="row">Tom Greggory</td>
-              <td>5/29/2019</td>
-              <td>5/29/2022</td>
+            <tr v-for="member in memberList">
+              <td scope="row">{{member.firstName}}</td>
+              <td>{{member.lastName}}</td>
+              <td>{{member.startDate}}</td>
+              <td>{{member.endDate}}</td>
               <td><button type="button" class="btn btn-primary">Edit</button></td>
-            </tr>
-            <tr>
-              <td scope="row">Hillol Bala</td>
-              <td>4/30/2018</td>
-              <td>4/30/2021</td>
-              <td><button type="button" class="btn btn-primary">Edit</button></td>
-            </tr>
-            <tr>
-              <td scope="row">Bipin Prabhakar</td>
-              <td>4/30/2018</td>
-              <td>4/30/2021</td>
-              <td><button type="button" class="btn btn-primary">Edit</button></td>
-            </tr>
-            <tr>
-              <td scope="row">Alexander Lopes</td>
-              <td>2/17/2018</td>
-              <td>2/17/2021</td>
-              <td><button type="button" class="btn btn-primary">Edit</button></td>
-            </tr>
-            <tr>
-                <td scope="row">Russel Clark</td>
-                <td>11/03/2017</td>
-                <td>11/03/2020</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
-            </tr>
-            <tr>
-              <td scope="row">Keith Dayton</td>
-              <td>11/03/2017</td>
-              <td>11/03/2020</td>
-              <td><button type="button" class="btn btn-primary">Edit</button></td>
-            </tr>
-            <tr>
-                <td scope="row">Michael Frutiger</td>
-                <td>11/03/2017</td>
-                <td>11/03/2017</td>
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
             </tr>
           </tbody>
         </table>
@@ -160,8 +126,8 @@
     <!-- Optional JavaScript -->
     <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/view_members.app.js"></script>
   </body>
 </html>

@@ -5,13 +5,13 @@ var app = new Vue({
   },
 
   created(){
-    this.fetchUser();
+    this.fetchCertification();
 
   },
 
   methods: {
 
-    fetchUser: function(){
+    fetchCertification: function(){
       fetch('api/records/view_certifications.php')
       .then(response => response.json())
       .then(data => {
