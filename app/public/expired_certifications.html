@@ -90,10 +90,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <th scope="row" colspan="3" class="placeholder">CPR for Healthcare Providers: American Heart Association</th>
+            </tr> -->
+            <tr v-for="certification in certificationReport">
+              <td scope="row">{{certification.certificationName}}</td>
+              <td>{{certification.certificationAgency}}</td>
+              <td>{{certification.defaultExpiration}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td scope="row">Hillol</td>
               <td>Bala</td>
               <td>4/20/2020</td>
@@ -133,7 +138,7 @@
                 <td scope="row">Hillol</td>
                 <td>Bala</td>
                 <td>7/14/2020</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </main>
