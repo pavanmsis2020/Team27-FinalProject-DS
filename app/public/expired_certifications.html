@@ -78,26 +78,61 @@
         </div>
       </nav>
 
-    <div>
+    <div id="certifications_report">
       <main class="row">
           <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Report: Expired Certifications</h1>
-        <table class="table table-bordered table-dark">
+        <h3>Safety Technician III</h3>
+        <table class="table table-bordered table-dark table-striped">
           <thead>
             <tr>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Expiration</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Test ID</th>
+              <th scope="col">Cert Name</th>
+              <th scope="col">Expiration (ACTUALLY TEST DATE)</th>
             </tr>
           </thead>
           <tbody>
-            <!-- <tr>
-              <th scope="row" colspan="3" class="placeholder">CPR for Healthcare Providers: American Heart Association</th>
-            </tr> -->
             <tr v-for="certification in certificationReport">
+              <!-- <td scope="row">{{certification.personID}}</td> -->
+              <td>{{certification.firstName}}</td>
+              <td>{{certification.lastName}}</td>
+              <td>{{certification.testID}}</td>
+              <td>{{certification.certificationName}}</td>
+              <td>{{certification.testDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Engineer II</h3>
+        <table class="table table-bordered table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Test ID</th>
+              <th scope="col">Expiration (ACTUALLY TEST DATE)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="certification in certificationReport">
+              <!-- <td scope="row">{{certification.personID}}</td> -->
+              <td>{{certification.firstName}}</td>
+              <td>{{certification.lastName}}</td>
+              <td>{{certification.testID}}</td>
+              <td>{{certification.testDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+          <!-- <tbody>
+            <tr>
+              <th scope="row" colspan="3" class="placeholder">CPR for Healthcare Providers: American Heart Association</th>
+            </tr>
+            <tr v-for="certification in certificationList">
               <td scope="row">{{certification.certificationName}}</td>
               <td>{{certification.certificationAgency}}</td>
               <td>{{certification.defaultExpiration}}</td>
-            </tr>
+            </tr> -->
             <!-- <tr>
               <td scope="row">Hillol</td>
               <td>Bala</td>
@@ -138,9 +173,9 @@
                 <td scope="row">Hillol</td>
                 <td>Bala</td>
                 <td>7/14/2020</td>
-            </tr> -->
+            </tr>
           </tbody>
-        </table>
+        </table> -->
       </main>
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>
@@ -151,8 +186,11 @@
     <!-- Optional JavaScript -->
     <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/certifications_report.app.js"></script>
   </body>
 </html>
