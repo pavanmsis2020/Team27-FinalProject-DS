@@ -6,16 +6,19 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Certification';
+$sql = 'SELECT Test.testID, Test.testDate, Person.firstName, Person.lastName, Certification.certificationName, Certification.defaultExpiration
+FROM Test, Person, Certification
+WHERE Test.personID = Person.personID
+AND Test.certificationID = Certification.certificationID;';
 $vars = [];
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$ecertifications = $stmt->fetchAll();
+$certifications_report = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($members, JSON_PRETTY_PRINT);
+$json = json_encode($certifications_report, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');
