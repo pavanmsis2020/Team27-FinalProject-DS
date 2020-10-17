@@ -5,25 +5,6 @@ HOME / BODY
     padding-top: 25px;
 }
 
-/*
-NAVBAR
-*/
-/* Heavily inspired by EY color scheme */
-/* Source: https://stackoverflow.com/questions/23699773/bootstrap-change-background-color-dropdown-menu */
-nav, .dropdown-menu {
-  background-color: rgb(52, 52, 52);
-}
-
-/* Source: https://stackoverflow.com/questions/24420080/change-navbar-text-color-bootstrap */
-.navbar-color li a {
-  color: white;
-}
-
-.navbar li a:hover {
-  /* Heavily inspired by EY color scheme */
-  background-color: rgb(52, 52, 52);
-  color: rgb(250, 225, 50);
-}
 
 /*
 IMAGES, TEXT/COLORS, TABLES
