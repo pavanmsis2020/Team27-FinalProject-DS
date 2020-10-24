@@ -68,6 +68,8 @@ CREATE TABLE User(
 );
 
 
+
+/* Source used: https://www.w3schools.com/sql/func_mysql_date_add.asp*/
 CREATE VIEW certExpirationView
 AS
 SELECT Test.testID, Test.personID, Test.testDate, Person.firstName, Person.lastName, Certification.certificationName, Certification.defaultExpiration, DATE_ADD(Test.testDate, INTERVAL Certification.defaultExpiration YEAR) AS expirationDate

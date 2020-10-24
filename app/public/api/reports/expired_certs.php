@@ -6,10 +6,8 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT Test.testID, Test.testDate, Person.firstName, Person.lastName, Certification.certificationName, Certification.defaultExpiration
-FROM Test, Person, Certification
-WHERE Test.personID = Person.personID
-AND Test.certificationID = Certification.certificationID;';
+$sql = 'SELECT * FROM certExpirationView
+        WHERE expirationDate < current_date();';
 $vars = [];
 
 $stmt = $db->prepare($sql);
