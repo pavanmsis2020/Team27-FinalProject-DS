@@ -1,7 +1,10 @@
 var app = new Vue({
   el: '#update_members',
   data:{
-    positionList: []
+    positionList: [],
+    newMember: {
+
+    }
   },
 
   created(){
@@ -10,6 +13,30 @@ var app = new Vue({
   },
 
   methods: {
+    newMemberData(){
+      return {
+        firstName: ""
+      }
+    },
+
+
+    createMember(){
+      fetch('api/records/update_members.php',{
+        method: 'POST',
+        body: JSON.stringify(this.newMember),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        
+      console.log("creating (POSTing)...!");
+      console.log(this.newMember);
+    },
+
+
+
+
+
 
     fetchPosition: function(){
       fetch('api/records/view_positions.php')
@@ -20,6 +47,9 @@ var app = new Vue({
 
 
       });
-    }
-  }
+    },
+
+
+
+  },
 })

@@ -79,86 +79,86 @@
       <main class="row">
           <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Update Members</h1>
           <!-- Search form -->
-        <form method="post" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+        <form method="post" v-on:submit.prevent="createMember" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
           <i class="fas fa-search" aria-hidden="true"></i>
           <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
             aria-label="Search">
 
           <div class="form-group">
             <!-- Add label -->
-            <label for="">First Name</label>
+            <label for="firstName">First Name</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.firstName" class="form-control"  placeholder="" id="firstName">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Last Name</label>
+            <label for="lastName">Last Name</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.lastName" class="form-control"  placeholder="" id="lastName">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Position</label>
+            <label for="positionID" >Position</label>
             <!-- Add id -->
-            <select>
-              <option v-for="position in positionList">
+            <select id="positionID" v-model="newMember.positionID">
+              <option v-for="position in positionList" :value="position.positionID">
                 {{position.positionName}}
               </option>
             </select>
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Gender</label>
+            <label for="gender">Gender</label>
             <!-- Add id -->
-            <input type="text" class="form-control" placeholder="">
+            <input type="text" v-model="newMember.gender" class="form-control" placeholder="" id="gender">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Address</label>
+            <label for="address">Address</label>
             <!-- Add id -->
-            <input type="text" class="form-control" placeholder="">
+            <input type="text" v-model="newMember.address" class="form-control" placeholder="" id="address">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Date of Birth</label>
+            <label for="dateOfBirth">Date of Birth</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.dateOfBirth" class="form-control"  placeholder="" id="dateOfBirth">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Work Phone</label>
+            <label for="workPhone">Work Phone</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text"  v-model="newMember.workPhone" class="form-control"  placeholder="" id="workPhone">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Mobile Phone</label>
+            <label for="mobilePhone">Mobile Phone</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.mobilePhone" class="form-control"  placeholder="" id="mobilePhone">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Start Date</label>
+            <label for="startDate">Start Date</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.startDate" class="form-control"  placeholder="" id="startDate">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Radio Number</label>
+            <label for="radioNumber">Radio Number</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.radioNumber" class="form-control"  placeholder="" id="radioNumber">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Station Number</label>
+            <label for="stationNumber">Station Number</label>
             <!-- Add id -->
-            <input type="text" class="form-control" placeholder="">
+            <input type="text" v-model="newMember.stationNumber" class="form-control" placeholder="" id="stationNumber">
           </div>
           <div class="form-group">
             <!-- Add label -->
-            <label for="">Email</label>
+            <label for="email">Email</label>
             <!-- Add id -->
-            <input type="text" class="form-control"  placeholder="">
+            <input type="text" v-model="newMember.email" class="form-control"  placeholder="" id="email">
           </div>
         <div class="button_group">
             <button type="submit" class="view_buttons">Add New</button>
