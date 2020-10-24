@@ -68,6 +68,14 @@ CREATE TABLE User(
 );
 
 
+CREATE VIEW certExpirationView
+AS
+SELECT Test.testID, Test.personID, Test.testDate, Person.firstName, Person.lastName, Certification.certificationName, Certification.defaultExpiration, DATE_ADD(Test.testDate, INTERVAL Certification.defaultExpiration YEAR) AS expirationDate
+FROM Test, Person, Certification
+WHERE Test.personID = Person.personID AND Test.certificationID = Certification.certificationID
+;
+
+
 /* Dummy Data */
 /* Source: https://www.mockaroo.com/ */
 
