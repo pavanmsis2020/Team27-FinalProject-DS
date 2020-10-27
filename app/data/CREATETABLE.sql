@@ -78,6 +78,13 @@ WHERE Test.personID = Person.personID AND Test.certificationID = Certification.c
 ;
 
 
+CREATE VIEW memberCertificationsView
+AS
+SELECT Certification.certificationID, Certification.certificationAgency, Certification.certificationName, Certification.defaultExpiration, Person.personID, Person.firstName, Test.testID
+FROM Certification, Person, Test
+WHERE Person.personID = Test.personID
+AND Certification.certificationID = Test.certificationID
+
 /* Dummy Data */
 /* Source: https://www.mockaroo.com/ */
 
