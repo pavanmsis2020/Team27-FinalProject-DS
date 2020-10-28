@@ -111,7 +111,7 @@
         					</tr>
         				</thead>
         				<tbody>
-        					<tr v-for="certification in certificationList" v-on:click="activeCertification = certification; fetchMemberCertification()">
+        					<tr v-for="certification in certificationList" v-on:click="activeCertification = certification; fetchCertificationByPerson()">
         						<td>
         							<span class="custom-checkbox">
         								<input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -229,23 +229,23 @@
         </div>
 
         <!-- View Modal HTML -->
-        <!-- <div id="viewEmployeeModal" class="modal fade">
+        <div id="viewEmployeeModal" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
             <form>
               <div class="modal-header">
-                <h4 class="modal-title">{{activeMember.firstName}} {{activeMember.lastName}}</h4>
+                <h4 class="modal-title">{{activeCertification.certificationName}}</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
               <div class="modal-body">
                 <div><h5><i>Certifications:</i><h5></div>
                 </n>
-                <div class="form-group"> <h6 v-for="cert in membercertification">{{cert.certificationName}} </h6> </div>
+                <div class="form-group"> <h6 v-for="person in certificationByPerson">{{person.firstName}} </h6> </div>
             </div>
             </form>
           </div>
         </div>
-        </div> -->
+        </div>
         </div>
         </div>
 
