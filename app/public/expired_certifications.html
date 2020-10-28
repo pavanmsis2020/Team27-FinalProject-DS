@@ -85,7 +85,7 @@
               <th scope="col">Last</th>
               <th scope="col">Test ID</th>
               <th scope="col">Cert Name</th>
-              <th scope="col">Expiration (ACTUALLY TEST DATE)</th>
+              <th scope="col">Expiration Date</th>
             </tr>
           </thead>
           <tbody>
@@ -95,31 +95,11 @@
               <td>{{certification.lastName}}</td>
               <td>{{certification.testID}}</td>
               <td>{{certification.certificationName}}</td>
-              <td>{{certification.testDate}}</td>
+              <td>{{certification.expirationDate}}</td>
             </tr>
           </tbody>
         </table>
 
-        <h3>Engineer II</h3>
-        <table class="table table-bordered table-dark table-striped">
-          <thead>
-            <tr>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Test ID</th>
-              <th scope="col">Expiration (ACTUALLY TEST DATE)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="certification in certificationReport">
-              <!-- <td scope="row">{{certification.personID}}</td> -->
-              <td>{{certification.firstName}}</td>
-              <td>{{certification.lastName}}</td>
-              <td>{{certification.testID}}</td>
-              <td>{{certification.testDate}}</td>
-            </tr>
-          </tbody>
-        </table>
           <!-- <tbody>
             <tr>
               <th scope="row" colspan="3" class="placeholder">CPR for Healthcare Providers: American Heart Association</th>
