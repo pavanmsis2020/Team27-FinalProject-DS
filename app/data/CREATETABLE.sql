@@ -4,7 +4,6 @@ BUS-X 501 - Data & Systems - Final Project
 Professor Tom Gregory
 */
 
-
 CREATE DATABASE OCFR;
 
 
