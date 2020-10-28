@@ -7,8 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Source: https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=crud-data-table-for-database-with-modal-form -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
 
     <title>OCFR - Home</title>
   </head>
@@ -19,98 +24,233 @@
       </header>
       <!-- NAVBAR -->
       <!-- Source: https://getbootstrap.com/docs/4.0/components/navbar/ -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="https://www.oconeecounty.com/227/Fire-Rescue"><img src="img/OCFRLogo.png" alt="Oconee County Fire Rescue Logo" width="50" height="50"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!--<a class="navbar-brand" href="img/OCFRLogo.png">INSERT IMAGE HERE</a> -->
-        <!-- Source: https://www.oconeecounty.com/227/Fire-Rescue -->
-        <!-- Source: https://www.w3schools.com/tags/att_img_width.asp -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="https://www.oconeecounty.com/227/Fire-Rescue"><img src="img/OCFRLogo.png" alt="Oconee County Fire Rescue Logo" width="50" height="50"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Member Records
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="view_members.html">View</a>
-                  <a class="dropdown-item" href="update_members.html">Update</a>
-                  <!-- <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a> -->
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Certifications
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="view_certifications.html">View</a>
-                  <a class="dropdown-item" href="update_certification.html">Update</a>
-                  <!-- <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a> -->
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Reports
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="expired_certifications.html">Expired Certifications</a>
-                  <a class="dropdown-item" href="members_by_station.html">Members by Station and Radio Number</a>
-                  <!-- <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a> -->
-                </div>
-              </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Member Records
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="view_members.html">View</a>
+                <a class="dropdown-item" href="update_members.html">Update</a>
+                <!-- <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a> -->
+              </div>
+            </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Certifications
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="view_certifications.html">View</a>
+                <a class="dropdown-item" href="update_certification.html">Update</a>
+                <!-- <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a> -->
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reports
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="expired_certifications.html">Expired Certifications</a>
+                <a class="dropdown-item" href="members_by_station.html">Members by Station and Radio Number</a>
+                <!-- <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a> -->
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
 
         <!-- Change the active and insert page links for subsequent nav links -->
 
+        <div id="certifications">
+        <div class="container-xl">
+        	<div class="table-responsive">
+        		<div class="table-wrapper">
+        			<div class="table-title">
+        				<div class="row">
+        					<div class="col-sm-6">
+        						<h2>View <b>Certification Records</b></h2>
+        					</div>
+        					<div class="col-sm-6">
+        						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Certification</span></a>
+        						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+        					</div>
+        				</div>
+        			</div>
+        			<table class="table table-striped table-hover">
+        				<thead>
+        					<tr>
+        						<th>
+        							<span class="custom-checkbox">
+        								<input type="checkbox" id="selectAll">
+        								<label for="selectAll"></label>
+        							</span>
+        						</th>
+        						<th>Certification Name</th>
+        						<th>Certification Agency</th>
+                    <th>Certification Expiration (Years)</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<tr v-for="certification in certificationList" v-on:click="activeCertification = certification; fetchCertificationByPerson()">
+        						<td>
+        							<span class="custom-checkbox">
+        								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+        								<label for="checkbox1"></label>
+        							</span>
+        						</td>
+                    <td>{{certification.certificationName}}</td>
+  						      <td>{{certification.certificationAgency}}</td>
+                    <td>{{certification.defaultExpiration}}</td>
+        						<td>
+                      <a href="#viewEmployeeModal" class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View Certification Record">&#xE417;</i></a>
+        							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit Certification Record">&#xE254;</i></a>
+        							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete Certification Record">&#xE872;</i></a>
+        						</td>
+        					</tr>
+        				</tbody>
+        			</table>
+        		</div>
+        	</div>
+        </div>
 
-    <div id="certifications">
-      <main class="row">
-          <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">View Certifications</h1>
-        <table class="table table-bordered table-dark">
-          <thead>
-            <tr>
-              <th scope="col">Certification</th>
-              <th scope="col">Provider</th>
-              <th scope="col">Expiration in Years</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="certification in certificationList">
-              <td scope="row">{{certification.certificationName}}</td>
-              <td>{{certification.certificationAgency}}</td>
-              <td>{{certification.defaultExpiration}}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="button_group">
-            <a href="#" class="view_buttons">Add New</a>
+
+
+  <!-- Add Modal HTML -->
+        <div>
+          <div id="addEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                 <form method="post" v-on:submit="createCertification">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Add New Certification</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <!-- Add label -->
+                      <label for="certificationName">Certification Name</label>
+                      <!-- Add id -->
+                      <input type="text" v-model="newCertification.certificationName" class="form-control"  placeholder="" id="certificationName">
+                    </div>
+                    <div class="form-group">
+                      <!-- Add label -->
+                      <label for="certificationAgency">Certification Agency</label>
+                      <!-- Add id -->
+                      <input type="text" v-model="newCertification.certificationAgency" class="form-control"  placeholder="" id="certificationAgency">
+                    </div>
+                    <div class="form-group">
+                      <!-- Add label -->
+                      <label for="defaultExpiration">Certification Expiration</label>
+                      <!-- Add id -->
+                      <input type="text" v-model="newCertification.defaultExpiration" class="form-control"  placeholder="" id="defaultExpiration">
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-success" value="Add">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Edit Modal HTML -->
+          <div id="editEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form v-on:submit = "editCertification">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Edit Certification</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label>Certification Name</label>
+                      <input type="text" class="form-control" v-model.lazy = "activeCertification.certificationName"></input>
+                    </div>
+                    <div class="form-group">
+                      <label>Certification Agency</label>
+                      <input type="text" class="form-control" v-model.lazy = "activeCertification.certificationAgency">
+                    </div>
+                    <div class="form-group">
+                      <label>Certification Expiration</label>
+                      <input type="text" class="form-control" v-model.lazy = "activeCertification.defaultExpiration">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info" value="Save">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Delete Modal HTML -->
+          <div id="deleteEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form v-on:submit = "deleteCertification">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Delete Certification</h4>
+                    <button type="submit" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                  </div>
+                  <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="button_group">
-            <a href="#" class="view_buttons">Delete</a>
+
+        <!-- View Modal HTML -->
+        <div id="viewEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form>
+              <div class="modal-header">
+                <h4 class="modal-title">{{activeCertification.certificationName}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div><h5><i>Certifications:</i><h5></div>
+                </n>
+                <div class="form-group"> <h6 v-for="person in certificationByPerson">{{person.firstName}} </h6> </div>
+            </div>
+            </form>
+          </div>
         </div>
-      </main>
-      <footer class="row">
-          <p class="footer_words"> &#169; Oconee County Fire Department</p>
-      </footer>
-    </div>
+        </div>
+        </div>
+        </div>
+
+
+
 
 
     <!-- Optional JavaScript -->
@@ -121,5 +261,32 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/view_certifications.app.js"></script>
+
+
+    <script>
+      $(document).ready(function(){
+        // Activate tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Select/Deselect checkboxes
+        var checkbox = $('table tbody input[type="checkbox"]');
+        $("#selectAll").click(function(){
+          if(this.checked){
+            checkbox.each(function(){
+              this.checked = true;
+            });
+          } else{
+            checkbox.each(function(){
+              this.checked = false;
+            });
+          }
+        });
+        checkbox.click(function(){
+          if(!this.checked){
+            $("#selectAll").prop("checked", false);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
