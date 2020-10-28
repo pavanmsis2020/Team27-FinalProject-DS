@@ -3,52 +3,41 @@ Team 27: Kendall Gibson, Nathaniel Pellant, Destin Schreiner, Pavan Yaddanapudi
 BUS-X 501 - Data & Systems - Final Project
 Professor Tom Gregory
 */
-/*hello*/
+
+CREATE DATABASE OCFR;
+
+
+USE OCFR;
+
+
+CREATE TABLE Position (
+    positionID INT AUTO_INCREMENT NOT NULL,
+    positionName VARCHAR(255),
+    PRIMARY KEY(positionID)
+);
+
+
 /* Source: https://www.w3schools.com/sql/sql_foreignkey.asp */
-CREATE TABLE Person(
-    personID INT AUTO_INCREMENT,
+CREATE TABLE Person (
+    personID INT AUTO_INCREMENT NOT NULL,
     firstName VARCHAR(255),
     lastName VARCHAR(255),
-    positionID INT,
+    positionID INT NOT NULL,
     gender VARCHAR(255),
     address VARCHAR(255),
     dateOfBirth DATE,
-    workPhone INT,
-    mobilePhone INT,
+    workPhone BIGINT,
+    mobilePhone BIGINT,
     startDate DATE,
     endDate DATE,
-    radioNumber INT,
-    stationNumber INT,
+    radioNumber BIGINT,
+    stationNumber BIGINT,
     email VARCHAR(255),
-    certificationID INT,
     isActive BOOLEAN,
-    PRIMARY KEY(personID) NOT NULL,
-    FOREIGN KEY(positionID) REFERENCES Position(positionID) NOT NULL,
-    FOREIGN KEY(certificationID) REFERENCES Certification(certificationID) NOT NULL
+    PRIMARY KEY(personID),
+    FOREIGN KEY(positionID) REFERENCES Position (positionID)
 );
 
-/* Some of these were DUNS numbers on Mockaroo - we'll have to modify them */
-/* SEE SCREENSHOT (Mockaroo, local FinalProject folder) */
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (1, 'Gretel', 'Patience', '09-877-5878', 'Female', '1 Mariners Cove Crossing', '11/7/2008', '189-817-4188', '454-746-2251', '12/29/2019', null, '9195386270', '53-810-3632', 'gpatience0@thetimes.co.uk', '53-723-4571', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (2, 'Faydra', 'Wackley', '81-818-9310', 'Female', '349 Eggendart Place', '5/16/2002', '185-650-1229', '765-739-2027', '8/13/2020', null, '2696813639', '69-871-9700', 'fwackley1@free.fr', '24-052-5466', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (3, 'Arturo', 'Nestor', '70-507-8994', 'Male', '8 Donald Center', '2/1/2019', '884-538-4789', '124-235-6309', '11/26/2019', '10/28/2019', '8689538178', '58-911-0855', 'anestor2@cdbaby.com', '63-867-2143', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (4, 'Price', 'Slayford', '36-439-7842', 'Male', '9756 Barby Trail', '7/3/1944', '421-439-7766', '124-802-0107', '8/18/2020', null, '6945790266', '72-446-3676', 'pslayford3@disqus.com', '42-551-5016', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (5, 'Barret', 'Forestall', '28-705-6881', 'Male', '9 Evergreen Court', '12/28/1994', '807-181-8006', '224-957-1674', '8/24/2020', null, '4283518476', '08-054-2545', 'bforestall4@bravesites.com', '57-670-5109', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (6, 'Bibby', 'Kleuer', '91-298-3785', 'Female', '71076 Tennessee Avenue', '1/18/1987', '634-653-9795', '667-503-1884', '11/28/2019', null, '1200592352', '99-056-9507', 'bkleuer5@yolasite.com', '03-383-6467', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (7, 'Stella', 'Rayson', '98-706-6038', 'Female', '60244 Summer Ridge Alley', '1/7/1941', '129-922-8859', '608-543-8631', '8/6/2020', null, '4782893744', '80-127-7162', 'srayson6@cisco.com', '89-647-0736', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (8, 'Grady', 'O''Dee', '52-207-6453', 'Male', '9730 Alpine Alley', '2/21/1972', '602-836-6365', '819-823-4949', '9/27/2020', null, '2900191416', '89-746-5483', 'godee7@addtoany.com', '67-814-0009', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (9, 'Erhard', 'Sidon', '57-359-6397', 'Male', '958 Fulton Drive', '2/20/1964', '227-642-8210', '767-341-8192', '9/21/2020', null, '5764118697', '42-232-2643', 'esidon8@fda.gov', '99-262-1839', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (10, 'Traci', 'Kabisch', '04-842-5216', 'Female', '20563 Almo Point', '10/19/1939', '605-427-4331', '278-946-8405', '4/15/2020', '10/15/2019', '6069230396', '87-660-1228', 'tkabisch9@columbia.edu', '12-878-6874', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (11, 'Emlen', 'Bruhn', '65-751-1277', 'Male', '255 Dapin Alley', '2/14/1980', '230-948-0955', '798-289-6343', '10/14/2019', null, '6605234529', '24-826-5784', 'ebruhna@gov.uk', '52-318-9233', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (12, 'Maurizio', 'Ferres', '72-981-4675', 'Male', '2096 Surrey Hill', '12/11/1958', '598-240-9757', '488-297-6254', '9/1/2020', null, '0788181165', '40-955-1698', 'mferresb@marketwatch.com', '21-858-6402', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (13, 'Sheilah', 'Haill', '24-744-1618', 'Female', '27 Gerald Center', '1/29/1975', '386-171-9754', '692-160-3386', '5/22/2020', null, '4589353784', '69-694-2193', 'shaillc@pen.io', '34-039-6108', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (14, 'Jamal', 'Rikel', '53-661-7128', 'Male', '73995 Mifflin Drive', '1/7/2011', '947-120-6925', '432-909-2392', '5/22/2020', '10/12/2019', '2618993926', '34-280-4453', 'jrikeld@dedecms.com', '86-522-8349', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (15, 'Gauthier', 'Eagling', '73-097-7636', 'Male', '1490 Logan Alley', '3/31/1994', '275-391-2937', '448-485-3157', '11/24/2019', null, '4024663917', '60-109-5818', 'geaglinge@vk.com', '40-133-1310', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (16, 'Thia', 'Crigin', '65-913-0976', 'Female', '73913 Washington Crossing', '11/14/1969', '247-373-9002', '976-472-5067', '2/10/2020', null, '9458280249', '69-362-4203', 'tcriginf@netlog.com', '68-693-4756', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (17, 'Jojo', 'Rojahn', '00-198-5073', 'Female', '31341 Myrtle Alley', '6/10/1950', '912-410-3361', '223-370-5883', '8/19/2020', null, '7984602697', '84-619-4138', 'jrojahng@friendfeed.com', '37-154-8371', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (18, 'Meriel', 'Blakey', '49-820-1875', 'Female', '39829 Annamark Court', '10/19/1971', '655-372-9480', '537-715-2111', '12/18/2019', null, '1175780197', '67-322-7471', 'mblakeyh@qq.com', '88-023-0625', true);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (19, 'Milly', 'Fletham', '89-897-6575', 'Female', '818 Holy Cross Alley', '4/15/1955', '848-257-2358', '979-627-4711', '7/16/2020', null, '8441456887', '49-354-2085', 'mflethami@smugmug.com', '93-848-0049', false);
-INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, certificationID, isActive) VALUES (20, 'Courtney', 'Savage', '86-051-3878', 'Female', '9 Sommers Terrace', '3/3/1978', '701-847-1607', '801-698-6332', '10/6/2019', '10/12/2019', '9615059560', '56-130-6181', 'csavagej@de.vu', '81-179-6016', true);
 
 CREATE TABLE Certification(
     certificationID INT AUTO_INCREMENT,
@@ -58,6 +47,88 @@ CREATE TABLE Certification(
     defaultExpiration INT,
     PRIMARY KEY(certificationID)
 );
+
+
+CREATE TABLE Test(
+    testID INT AUTO_INCREMENT NOT NULL,
+    personID INT NOT NULL,
+    certificationID INT NOT NULL,
+    testDate DATE,
+    PRIMARY KEY (testID),
+    FOREIGN KEY (personID) REFERENCES Person (personID),
+    FOREIGN KEY (certificationID) REFERENCES Certification (certificationID)
+);
+
+
+/* OPTIONAL */
+CREATE TABLE User(
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+
+
+/* Source used: https://www.w3schools.com/sql/func_mysql_date_add.asp*/
+CREATE VIEW certExpirationView
+AS
+SELECT Test.testID, Test.personID, Test.testDate, Person.firstName, Person.lastName, Certification.certificationName, Certification.defaultExpiration, DATE_ADD(Test.testDate, INTERVAL Certification.defaultExpiration YEAR) AS expirationDate
+FROM Test, Person, Certification
+WHERE Test.personID = Person.personID AND Test.certificationID = Certification.certificationID
+;
+
+
+CREATE VIEW memberCertificationsView
+AS
+SELECT Certification.certificationID, Certification.certificationAgency, Certification.certificationName, Certification.defaultExpiration, Person.personID, Person.firstName, Test.testID
+FROM Certification, Person, Test
+WHERE Person.personID = Test.personID
+AND Certification.certificationID = Test.certificationID
+
+/* Dummy Data */
+/* Source: https://www.mockaroo.com/ */
+
+INSERT INTO Position (positionID, positionName) VALUES (1, 'Software Engineer III');
+INSERT INTO Position (positionID, positionName) VALUES (2, 'Information Systems Manager');
+INSERT INTO Position (positionID, positionName) VALUES (3, 'Physical Therapy Assistant');
+INSERT INTO Position (positionID, positionName) VALUES (4, 'Director of Sales');
+INSERT INTO Position (positionID, positionName) VALUES (5, 'Actuary');
+INSERT INTO Position (positionID, positionName) VALUES (6, 'Executive Secretary');
+INSERT INTO Position (positionID, positionName) VALUES (7, 'Quality Control Specialist');
+INSERT INTO Position (positionID, positionName) VALUES (8, 'VP Product Management');
+INSERT INTO Position (positionID, positionName) VALUES (9, 'Research Nurse');
+INSERT INTO Position (positionID, positionName) VALUES (10, 'Senior Cost Accountant');
+INSERT INTO Position (positionID, positionName) VALUES (11, 'Actuary');
+INSERT INTO Position (positionID, positionName) VALUES (12, 'Associate Professor');
+INSERT INTO Position (positionID, positionName) VALUES (13, 'Technical Writer');
+INSERT INTO Position (positionID, positionName) VALUES (14, 'Physical Therapy Assistant');
+INSERT INTO Position (positionID, positionName) VALUES (15, 'Senior Quality Engineer');
+INSERT INTO Position (positionID, positionName) VALUES (16, 'VP Product Management');
+INSERT INTO Position (positionID, positionName) VALUES (17, 'Administrative Assistant IV');
+INSERT INTO Position (positionID, positionName) VALUES (18, 'VP Product Management');
+INSERT INTO Position (positionID, positionName) VALUES (19, 'Web Developer III');
+INSERT INTO Position (positionID, positionName) VALUES (20, 'VP Quality Control');
+
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (1, 'Gretel', 'Patience', '1', 'Female', '1 Mariners Cove Crossing', STR_TO_DATE('11/7/2008', '%m/%d/%Y'), '1898174188', '4547462251', STR_TO_DATE('12/29/2019', '%m/%d/%Y'), null, '9195386270', '538103632', 'gpatience0@thetimes.co.uk', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (2, 'Faydra', 'Wackley', '2', 'Female', '349 Eggendart Place',  STR_TO_DATE('5/16/2002', '%m/%d/%Y'), '1856501229', '7657392027', STR_TO_DATE('8/13/2020', '%m/%d/%Y'), null, '2696813639', '698719700', 'fwackley1@free.fr', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (3, 'Arturo', 'Nestor', '3', 'Male', '8 Donald Center', STR_TO_DATE('2/1/2019', '%m/%d/%Y'), '8845384789', '1242356309', STR_TO_DATE('11/26/2019', '%m/%d/%Y'), STR_TO_DATE('10/28/2019', '%m/%d/%Y'), '8689538178', '589110855', 'anestor2@cdbaby.com', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (4, 'Price', 'Slayford', '4', 'Male', '9756 Barby Trail', STR_TO_DATE('7/3/1944', '%m/%d/%Y'), '4214397766', '1248020107', STR_TO_DATE('8/18/2020', '%m/%d/%Y'), null, '6945790266', '724463676', 'pslayford3@disqus.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (5, 'Barret', 'Forestall', '5', 'Male', '9 Evergreen Court', STR_TO_DATE('12/28/1994','%m/%d/%Y'), '8071818006', '2249571674', STR_TO_DATE('8/24/2020', '%m/%d/%Y'), null, '4283518476', '080542545', 'bforestall4@bravesites.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (6, 'Bibby', 'Kleuer', '6', 'Female', '71076 Tennessee Avenue', STR_TO_DATE('1/18/1987', '%m/%d/%Y'), '6346539795', '6675031884', STR_TO_DATE('11/28/2019', '%m/%d/%Y'), null, '1200592352', '990569507', 'bkleuer5@yolasite.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (7, 'Stella', 'Rayson', '7', 'Female', '60244 Summer Ridge Alley', STR_TO_DATE('1/7/1941', '%m/%d/%Y'), '1299228859', '6085438631', STR_TO_DATE('8/6/2020', '%m/%d/%Y'), null, '4782893744', '801277162', 'srayson6@cisco.com', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (8, 'Grady', 'O''Dee', '8', 'Male', '9730 Alpine Alley', STR_TO_DATE('2/21/1972','%m/%d/%Y'), '6028366365', '8198234949', STR_TO_DATE('9/27/2020', '%m/%d/%Y'), null, '2900191416', '897465483', 'godee7@addtoany.com', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (9, 'Erhard', 'Sidon', '9', 'Male', '958 Fulton Drive', STR_TO_DATE('2/20/1964','%m/%d/%Y'), '2276428210','7673418192', STR_TO_DATE('9/21/2020', '%m/%d/%Y'), null, '5764118697', '422322643', 'esidon8@fda.gov', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (10, 'Traci', 'Kabisch', '10', 'Female', '20563 Almo Point', STR_TO_DATE('10/19/1939', '%m/%d/%Y'), '6054274331', '2789468405', STR_TO_DATE('4/15/2020', '%m/%d/%Y'), STR_TO_DATE('10/15/2019', '%m/%d/%Y'), '6069230396', '876601228', 'tkabisch9@columbia.edu', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (11, 'Emlen', 'Bruhn', '11', 'Male', '255 Dapin Alley', STR_TO_DATE('2/14/1980', '%m/%d/%Y'), '2309480955', '7982896343', STR_TO_DATE('10/14/2019', '%m/%d/%Y'), null, '6605234529', '248265784', 'ebruhna@gov.uk', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (12, 'Maurizio', 'Ferres', '12', 'Male', '2096 Surrey Hill', STR_TO_DATE('12/11/1958', '%m/%d/%Y'), '5982409757', '4882976254', STR_TO_DATE('9/1/2020', '%m/%d/%Y'), null, '0788181165', '409551698', 'mferresb@marketwatch.com', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (13, 'Sheilah', 'Haill', '13', 'Female', '27 Gerald Center', STR_TO_DATE('1/29/1975', '%m/%d/%Y'), '3861719754', '6921603386', STR_TO_DATE('5/22/2020', '%m/%d/%Y'), null, '4589353784', '696942193', 'shaillc@pen.io', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (14, 'Jamal', 'Rikel', '14', 'Male', '73995 Mifflin Drive', STR_TO_DATE('1/7/2011', '%m/%d/%Y'), '9471206925', '4329092392', STR_TO_DATE('5/22/2020', '%m/%d/%Y'), STR_TO_DATE('10/12/2019','%m/%d/%Y'), '2618993926', '342804453', 'jrikeld@dedecms.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (15, 'Gauthier', 'Eagling', '15', 'Male', '1490 Logan Alley', STR_TO_DATE('3/31/1994', '%m/%d/%Y'), '2753912937', '4484853157', STR_TO_DATE('11/24/2019', '%m/%d/%Y'), null, '4024663917', '601095818', 'geaglinge@vk.com', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (16, 'Thia', 'Crigin', '16', 'Female', '73913 Washington Crossing', STR_TO_DATE('11/14/1969', '%m/%d/%Y'), '2473739002', '9764725067', STR_TO_DATE('2/10/2020', '%m/%d/%Y'), null, '9458280249', '693624203', 'tcriginf@netlog.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (17, 'Jojo', 'Rojahn', '17', 'Female', '31341 Myrtle Alley', STR_TO_DATE('6/10/1950', '%m/%d/%Y'), '9124103361', '2233705883', STR_TO_DATE('8/19/2020', '%m/%d/%Y'), null, '7984602697', '846194138', 'jrojahng@friendfeed.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (18, 'Meriel', 'Blakey', '18', 'Female', '39829 Annamark Court', STR_TO_DATE('10/19/1971', '%m/%d/%Y'), '6553729480', '5377152111', STR_TO_DATE('12/18/2019', '%m/%d/%Y'), null, '1175780197', '673227471', 'mblakeyh@qq.com', true);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (19, 'Milly', 'Fletham', '19', 'Female', '818 Holy Cross Alley', STR_TO_DATE('4/15/1955', '%m/%d/%Y'), '8482572358', '9796274711', STR_TO_DATE('7/16/2020', '%m/%d/%Y'), null, '8441456887', '493542085', 'mflethami@smugmug.com', false);
+INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (20, 'Courtney', 'Savage', '20', 'Female', '9 Sommers Terrace', STR_TO_DATE('3/3/1978', '%m/%d/%Y'), '7018471607', '8016986332', STR_TO_DATE('10/6/2019', '%m/%d/%Y'), STR_TO_DATE('10/12/2019', '%m/%d/%Y'), '9615059560', '561306181', 'csavagej@de.vu', true);
+
 
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (1, 'Lowe Group', 'Research Associate', 63);
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (2, 'Douglas Group', 'Office Assistant II', 15);
@@ -80,69 +151,25 @@ INSERT INTO Certification (certificationID, certificationAgency, certificationNa
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (19, 'Effertz Inc', 'Engineer II', 8);
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (20, 'Hettinger-Hettinger', 'Web Developer IV', 53);
 
-CREATE TABLE Position(
-    positionID INT AUTO_INCREMENT,
-    positionName VARCHAR(255),
-    certificationID INT,
-    PRIMARY KEY(positionID) NOT NULL,
-    FOREIGN Key (certificationID) REFERENCES Certification(certificationID) NOT NULL
-);
 
-/* certificationID cross-reference to Certification TABLE */
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (1, 'Software Engineer III', 37);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (2, 'Information Systems Manager', 2);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (3, 'Physical Therapy Assistant', 43);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (4, 'Director of Sales', 39);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (5, 'Actuary', 98);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (6, 'Executive Secretary', 5);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (7, 'Quality Control Specialist', 46);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (8, 'VP Product Management', 95);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (9, 'Research Nurse', 47);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (10, 'Senior Cost Accountant', 49);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (11, 'Actuary', 27);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (12, 'Associate Professor', 46);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (13, 'Technical Writer', 8);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (14, 'Physical Therapy Assistant', 21);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (15, 'Senior Quality Engineer', 24);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (16, 'VP Product Management', 4);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (17, 'Administrative Assistant IV', 75);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (18, 'VP Product Management', 92);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (19, 'Web Developer III', 99);
-INSERT INTO Position (positionID, positionName, certificationID) VALUES (20, 'VP Quality Control', 2);
 
-CREATE TABLE Test(
-    testID INT AUTO_INCREMENT,
-    personID INT,
-    certificationID INT,
-    testDate DATE,
-    PRIMARY KEY (testID) NOT NULL,
-    FOREIGN KEY (personID) REFERENCES Person (personID) NOT NULL,
-    FOREIGN KEY (certificationID) REFERENCES Certification (certificationID) NOT NULL
-);
-
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (1, 63, 78, '6/30/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (2, 67, 73, '3/4/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (3, 87, 57, '5/4/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (4, 32, 97, '7/25/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (5, 52, 23, '4/8/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (6, 20, 60, '1/27/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (7, 40, 58, '11/30/2019');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (8, 55, 82, '5/3/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (9, 3, 7, '11/5/2019');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (10, 73, 75, '1/22/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (11, 55, 79, '8/23/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (12, 33, 10, '2/21/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (13, 66, 79, '12/14/2019');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (14, 2, 11, '2/23/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (15, 94, 89, '12/31/2019');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (16, 41, 23, '9/2/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (17, 94, 21, '6/18/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (18, 80, 35, '3/6/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (19, 97, 1, '5/23/2020');
-INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (20, 61, 44, '4/29/2020');
-
-/* OPTIONAL */
-CREATE TABLE User(
-    email VARCHAR(255),
-    password VARCHAR(255)
-);
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (1, 20, 1, STR_TO_DATE('6/30/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (2, 19, 2, STR_TO_DATE('3/4/2020', '%m/%d/%Y') );
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (3, 18, 1, STR_TO_DATE('5/4/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (4, 20, 3, STR_TO_DATE('7/25/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (5, 16, 4, STR_TO_DATE('4/8/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (6, 15, 4, STR_TO_DATE('1/27/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (7, 14, 5, STR_TO_DATE('11/30/2019', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (8, 13, 6, STR_TO_DATE('5/3/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (9, 12, 7, STR_TO_DATE('11/5/2019', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (10, 11, 8, STR_TO_DATE('1/22/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (11, 10, 9, STR_TO_DATE('8/23/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (12, 9, 10, STR_TO_DATE('2/21/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (13, 8, 12, STR_TO_DATE('12/14/2019', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (14, 7, 11, STR_TO_DATE('2/23/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (15, 6, 11, STR_TO_DATE('12/31/2019', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (16, 5, 20, STR_TO_DATE('9/2/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (17, 4, 19, STR_TO_DATE('6/18/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (18, 3, 18, STR_TO_DATE('3/6/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (19, 2, 17, STR_TO_DATE('5/23/2020', '%m/%d/%Y'));
+INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (20, 1, 16,STR_TO_DATE( '4/29/2020', '%m/%d/%Y'));

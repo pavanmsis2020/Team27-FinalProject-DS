@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-LABEL maintainer="Team 27 [Kendall Gibson, Nathaniel Pellant, Destin Schreiner, Pavan Yaddnapudi]"
+LABEL maintainer="Team 27 [Kendall Gibson, Nathaniel Pellant, Destin Schreiner, Pavan Yaddanapudi]"
 
 COPY app /srv/app
 
