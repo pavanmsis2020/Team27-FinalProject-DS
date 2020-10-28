@@ -3,7 +3,8 @@ var app = new Vue({
   data:{
     certificationList: [],
     activeCertification: {},
-    newCertification:{}
+    newCertification:{},
+    certificationByPerson: []
   },
 
   created(){
@@ -22,6 +23,25 @@ var app = new Vue({
 
 
       });
+    },
+
+    fetchCertificationByPerson(){
+      fetch('api/records/view_certs_by_person.php',{
+        method: 'POST',
+        body: JSON.stringify(this.activeCertification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+
+      .then(response => response.json())
+      .then(data => {
+        this.certificationByPerson = data;
+        console.log(data);
+
+      });
+      console.log("creating (POSTing)...!");
+      console.log(this.activeCertification);
     },
 
     editCertification(){
