@@ -23,7 +23,6 @@ var app = new Vue({
     certificationList: [],
     memberExpired: [],
     memberCurrent: []
-
   },
 
   created(){
