@@ -72,39 +72,39 @@
       </nav>
 
       <div id="certifications_report">
-        <div class="container-xl">
-          <div class="table-responsive">
-            <div class="table-wrapper">
-              <div class="table-title">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h2>View <b>Expired Certifications</b></h2>
-                  </div>
+      <div class="container-xl">
+        <div class="table-responsive">
+          <div class="table-wrapper">
+            <div class="table-title">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h2>View <b>Expired Certifications</b></h2>
                 </div>
               </div>
-              <table id="taskTable" class="sortable table table-striped table-hover">
-                <thead>
-                  <tr>
-
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Certification Name</th>
-                      <th>Expirattion Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="Certifications in certificationReport">
-
-                    <td>{{Certifications.firstName}}</td>
-                    <td>{{Certifications.lastName}}</td>
-                    <td>{{Certifications.certificationName}}</td>
-                    <td>{{Certifications.expirationDate}}</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
+            <table id="taskTable" class="sortable table table-striped table-hover">
+              <thead>
+                <tr>
+
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Certification Name</th>
+                    <th>Expirattion Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="Certifications in certificationReport">
+
+                  <td>{{Certifications.firstName}}</td>
+                  <td>{{Certifications.lastName}}</td>
+                  <td>{{Certifications.certificationName}}</td>
+                  <td>{{Certifications.expirationDate}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+      </div>
       </main>
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>

@@ -12,9 +12,12 @@ var app = new Vue({
 
   created(){
     this.fetchCertification();
+
   },
 
   methods: {
+
+
     fetchCertificationExpired(){
       fetch('api/records/view_certification_expired.php',{
         method: 'POST',
@@ -23,13 +26,18 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then(response => response.json())
       .then(json => {
         this.certificationExpired = json;
         console.log(json);
+
       });
       console.log("creating (POSTing)...!");
     },
+
+
+
 
     fetchCertificationCurrent(){
       fetch('api/records/view_certification_current.php',{
@@ -39,10 +47,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then(response => response.json())
       .then(json => {
         this.certificationCurrent = json;
         console.log(json);
+
       });
       console.log("creating (POSTing)...!");
     },
@@ -53,6 +63,8 @@ var app = new Vue({
       .then(data => {
         this.certificationList = data;
         console.log(data);
+
+
       });
     },
 
@@ -64,10 +76,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then(response => response.json())
       .then(json => {
         this.certificationByPerson = json;
         console.log(json);
+
       });
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);
@@ -81,9 +95,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);
     },
+
+
 
     newCertificationData(){
       return {
@@ -92,6 +109,7 @@ var app = new Vue({
         defaultExpiration:""
       }
     },
+
 
     createCertification(){
       fetch('api/records/update_certification.php',{
@@ -111,14 +129,23 @@ var app = new Vue({
       console.log(this.newCertification);
     },
 
+
+
+
+
+
     fetchPosition: function(){
       fetch('api/records/view_positions.php')
       .then(response => response.json())
       .then(data => {
         this.positionList = data;
         console.log(data);
+
+
       });
     },
+
+
 
     deleteCertification(){
       fetch('api/records/delete_certification.php',{
@@ -134,6 +161,7 @@ var app = new Vue({
         this.certificationList = json;
         console.log(this.certificationList);
         });
+
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);
     },
@@ -144,6 +172,9 @@ var app = new Vue({
       .then(data => {
         this.certificationList = data;
         console.log(data);
+
+
+
       });
     }
   }
