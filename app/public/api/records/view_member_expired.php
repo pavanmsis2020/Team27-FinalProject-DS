@@ -7,18 +7,15 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 
+
 $stmt = $db->prepare('SELECT * FROM memberCertificationsView
-WHERE certificationID = ?;');
+WHERE personID = ?
+AND expirationDate <= current_date();');
 $stmt->execute([
-  $_POST['certificationID']
+  $_POST['personID']
 ]);
 
-
 $memberCertifications = $stmt->fetchAll();
-
-
-
-
 
 // Step 3: Convert to JSON
 $json = json_encode($memberCertifications, JSON_PRETTY_PRINT);

@@ -75,7 +75,7 @@
         </div>
       </nav>
 
-      <div id="certifications">
+      <div id="certifications_report">
       <div class="container-xl">
         <div class="table-responsive">
           <div class="table-wrapper">
@@ -89,30 +89,20 @@
             <table id="taskTable" class="sortable table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="selectAll">
-                      <label for="selectAll"></label>
-                    </span>
-                  </th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Radio Number</th>
-                  <th>Station Number</th>
+
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Certification Name</th>
+                    <th>Expirattion Date</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="certification in certificationList" v-on:click="activeCertification = certification; fetchCertificationByPerson()">
-                  <td>
-                    <span class="custom-checkbox">
-                      <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                      <label for="checkbox1"></label>
-                    </span>
-                  </td>
-                  <td>{{Certification.firstName}}</td>
-                  <td>{{Certification.lastName}}</td>
-                  <td>{{Certification.certificationName}}</td>
-                  <td>{{Certification.expirationDate}}</td>
+                <tr v-for="Certifications in certificationReport">
+
+                  <td>{{Certifications.firstName}}</td>
+                  <td>{{Certifications.lastName}}</td>
+                  <td>{{Certifications.certificationName}}</td>
+                  <td>{{Certifications.expirationDate}}</td>
                 </tr>
               </tbody>
             </table>
@@ -212,11 +202,11 @@
         </table> -->
 
 
-      <!-- </main>
+      </main>
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>
       </footer>
-    </div> -->
+    </div>
 
 
     <!-- Optional JavaScript -->

@@ -282,9 +282,9 @@ table.table .avatar {
 	background: #ddd;
 }
 /* Modal styles */
-.modal .modal-dialog {
+/* .modal .modal-dialog {
 	max-width: 400px;
-}
+} */
 .modal .modal-header, .modal .modal-body, .modal .modal-footer {
 	padding: 20px 30px;
 }
@@ -349,4 +349,27 @@ th[aria-sort]:not(.no-sort):after {
 th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
+}
+
+
+
+
+
+/* Destin Added */
+.required:after{
+  content:"*";
+  color: red;
+}
+
+.current{
+  color: #07da63;
+}
+
+.expired{
+  color: red;
+}
+
+.view_header{
+  text-decoration: underline;
+  font-weight:bold;
 }

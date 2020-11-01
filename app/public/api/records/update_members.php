@@ -44,18 +44,18 @@ $stmt->execute([
 $pk = $db->lastInsertId();
 
 
-$stmt2 = $db->prepare(
-  'INSERT INTO Test (personID, certificationID, testDate)
-  VALUES (?,?,?)'
-);
-
-$stmt2->execute([
-  $pk,
-  $_POST['certificationID'],
-  $_POST['testDate']
-
-
-]);
+// $stmt2 = $db->prepare(
+//   'INSERT INTO Test (personID, certificationID, testDate)
+//   VALUES (?,?,?)'
+// );
+//
+// $stmt2->execute([
+//   $pk,
+//   $_POST['certificationID'],
+//   $_POST['testDate']
+//
+//
+// ]);
 
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
