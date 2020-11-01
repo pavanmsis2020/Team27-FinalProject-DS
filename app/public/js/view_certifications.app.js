@@ -5,7 +5,9 @@ var app = new Vue({
     activeCertification: {},
     positionList: [],
     newCertification:{},
-    certificationByPerson: []
+    certificationByPerson: [],
+    certificationCurrent: [],
+    certificationExpired: [],
   },
 
   created(){
@@ -14,6 +16,46 @@ var app = new Vue({
   },
 
   methods: {
+
+
+    fetchCertificationExpired(){
+      fetch('api/records/view_certification_expired.php',{
+        method: 'POST',
+        body: JSON.stringify(this.activeCertification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+
+      .then(response => response.json())
+      .then(json => {
+        this.certificationExpired = json;
+        console.log(json);
+
+      });
+      console.log("creating (POSTing)...!");
+    },
+
+
+
+
+    fetchCertificationCurrent(){
+      fetch('api/records/view_certification_current.php',{
+        method: 'POST',
+        body: JSON.stringify(this.activeCertification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+
+      .then(response => response.json())
+      .then(json => {
+        this.certificationCurrent = json;
+        console.log(json);
+
+      });
+      console.log("creating (POSTing)...!");
+    },
 
     fetchCertification: function(){
       fetch('api/records/view_certifications.php')
@@ -36,9 +78,9 @@ var app = new Vue({
       })
 
       .then(response => response.json())
-      .then(data => {
-        this.certificationByPerson = data;
-        console.log(data);
+      .then(json => {
+        this.certificationByPerson = json;
+        console.log(json);
 
       });
       console.log("creating (POSTing)...!");
@@ -77,7 +119,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-
+      .then( response => response.json() )
+        .then( json => {
+          console.log ("Returned from post:", json);
+          this.certificationList.push(json[json.length - 1]);
+          this.newCertification = this.newCertificationData();
+        });
       console.log("creating (POSTing)...!");
       console.log(this.newCertification);
     },
@@ -108,6 +155,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+      .then( response => response.json() )
+      .then( json => {
+        console.log ("Returned from post:", json);
+        this.certificationList = json;
+        console.log(this.certificationList);
+        });
 
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);

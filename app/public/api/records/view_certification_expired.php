@@ -9,10 +9,10 @@ $db = DbConnection::getConnection();
 
 
 $stmt = $db->prepare('SELECT * FROM memberCertificationsView
-WHERE personID = ?
-AND expirationDate > current_date();');
+WHERE certificationID = ?
+AND expirationDate <= current_date();');
 $stmt->execute([
-  $_POST['personID']
+  $_POST['certificationID']
 ]);
 
 $memberCertifications = $stmt->fetchAll();
