@@ -4,9 +4,26 @@ var app = new Vue({
     memberList: [],
     activeMember: {},
     positionList: [],
-    newMember: {},
+    newMember: {
+      firstName: null,
+      lastName: null,
+      positionID: null,
+      gender: null,
+      address: null,
+      dateOfBirth: null,
+      workPhone: null,
+      mobilePhone: null,
+      startDate: null,
+      endDate: null,
+      radioNumber: null,
+      stationNumber: null,
+      email: null
+    },
     membercertification: [],
-    certificationList: []
+    certificationList: [],
+    memberExpired: [],
+    memberCurrent: []
+
   },
 
   created(){
@@ -16,6 +33,55 @@ var app = new Vue({
   },
 
   methods: {
+    fetchExpiredCertification(){
+      fetch('api/records/view_member_expired.php',{
+        method: 'POST',
+        body: JSON.stringify(this.activeMember),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.memberExpired = data;
+        console.log(data);
+      });
+    },
+
+    fetchCurrentCertification(){
+      fetch('api/records/view_member_current.php',{
+        method: 'POST',
+        body: JSON.stringify(this.activeMember),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.memberCurrent = data;
+        console.log(data);
+
+      });
+    },
+
+    updateMember(){
+      fetch('api/records/update_test.php',{
+        method: 'POST',
+        body: JSON.stringify(this.activeMember),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+        .then( json => {
+          console.log ("Returned from post:", json);
+          this.activeMember = this.activeMemberData();
+          console.log(this.activeMember);
+        });
+      console.log("creating (POSTing)...!");
+      console.log(this.activeMember);
+    },
+
     fetchCertification: function(){
       fetch('api/records/view_certifications.php')
       .then(response => response.json())
@@ -38,7 +104,6 @@ var app = new Vue({
         this.membercertification = data;
         console.log(data);
       });
-      console.log("creating (POSTing)...!");
       console.log(this.activeMember);
     },
 
@@ -70,6 +135,28 @@ var app = new Vue({
         email: "",
         certificationID: "",
         testDate: ""
+      }
+    },
+
+    activeMemberData(){
+      return {
+        testDate: "",
+        endDate: "",
+        isActive:"",
+        personID:"",
+        firstName: "",
+        lastName: "",
+        positionID: "",
+        gender: "",
+        address: "",
+        dateOfBirth: "",
+        workPhone: "",
+        mobilePhone: "",
+        startDate: "",
+        radioNumber: "",
+        stationNumber: "",
+        email: "",
+        certificationID: ""
       }
     },
 
@@ -108,8 +195,14 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+      .then( response => response.json() )
+        .then( json => {
+          console.log ("Returned from post:", json);
+          this.memberList = json;
+          this.activeMember = this.activeMemberData();
+          console.log(this.memberList);
+        });
       console.log("creating (POSTing)...!");
-      console.log(this.activeMember);
     },
 
     fetchMember: function(){

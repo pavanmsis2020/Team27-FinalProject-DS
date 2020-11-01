@@ -19,6 +19,7 @@
   </head>
 
   <body>
+    <div class="wrapper">
     <div class="container container-fluid">
       <header class="row">
       </header>
@@ -69,16 +70,14 @@
         </div>
       </nav>
 
-      <div id="certifications">
-        <div class="container-xl">
-          <div class="table-responsive">
-            <div class="table-wrapper">
-              <div class="table-title">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h2>View <b>Members by Station, Radio Number</b></h2>
-                  </div>
-                </div>
+    <div id="members_by_station">
+    <div class="container-xl">
+      <div class="table-responsive">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-6">
+                <h2>View <b>Members by Station, Radio Number</b></h2>
               </div>
               <table id="taskTable" class="sortable table table-striped table-hover">
                 <thead>
@@ -112,7 +111,33 @@
               </table>
             </div>
           </div>
+          <table id="taskTable" class="sortable table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Radio Number</th>
+                <th>Station Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="membertwo in memberTwoList">
+                <td>{{membertwo.firstName}}</td>
+                <td>{{membertwo.lastName}}</td>
+                <td>{{membertwo.radioNumber}}</td>
+                <td>{{membertwo.stationNumber}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
+    </div>
+  </main>
+  <footer class="row">
+      <p class="footer_words"> &#169; Oconee County Fire Department</p>
+  </footer>
+</div>
+  </body>
 
     <!-- Optional JavaScript -->
     <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
@@ -126,5 +151,4 @@
     <script>
       new Tablesort(document.getElementById('taskTable'));
     </script>
-  </body>
 </html>

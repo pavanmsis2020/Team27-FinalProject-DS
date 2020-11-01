@@ -69,7 +69,7 @@ WHERE Test.personID = Person.personID AND Test.certificationID = Certification.c
 
 CREATE VIEW memberCertificationsView
 AS
-SELECT Certification.certificationID, Certification.certificationAgency, Certification.certificationName, Certification.defaultExpiration, Person.personID, Person.firstName, Test.testID
+SELECT Certification.certificationID, Certification.certificationAgency, Certification.certificationName, Certification.defaultExpiration, Person.personID, Person.firstName, Person.lastName, Test.testID, Test.testDate, DATE_ADD(Test.testDate, INTERVAL Certification.defaultExpiration YEAR) AS expirationDate
 FROM Certification, Person, Test
 WHERE Person.personID = Test.personID
 AND Certification.certificationID = Test.certificationID;

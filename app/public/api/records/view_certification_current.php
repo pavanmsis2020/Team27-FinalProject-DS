@@ -7,8 +7,10 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 
+
 $stmt = $db->prepare('SELECT * FROM memberCertificationsView
-WHERE certificationID = ?;');
+WHERE certificationID = ?
+AND expirationDate > current_date();');
 $stmt->execute([
   $_POST['certificationID']
 ]);

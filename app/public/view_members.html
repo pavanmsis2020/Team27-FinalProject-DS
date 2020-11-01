@@ -70,59 +70,70 @@
       </nav>
 
       <div id="members">
-        <div class="container-xl">
-        	<div class="table-responsive">
-        		<div class="table-wrapper">
-        			<div class="table-title">
-        				<div class="row">
-        					<div class="col-sm-6">
-        						<h2>View <b>Member Records</b></h2>
-        					</div>
-        					<div class="col-sm-6">
-        						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Member</span></a>
-        						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
-        					</div>
-        				</div>
-        			</div>
-        			<table id="taskTable" class="sortable table table-striped table-hover">
-        				<thead>
-        					<tr>
-        						<th>
-        							<span class="custom-checkbox">
-        								<input type="checkbox" id="selectAll">
-        								<label for="selectAll"></label>
-        							</span>
-        						</th>
-        						<th>Member First Name</th>
-        						<th>Member Last Name</th>
-                    <th>Radio Number</th>
-                    <th>Station Number</th>
-        						<th>Actions</th>
-        					</tr>
-        				</thead>
-        				<tbody>
-        					<tr v-for="member in memberList" v-on:click="activeMember = member; fetchMemberCertification()">
-        						<td>
-        							<span class="custom-checkbox">
-        								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-        								<label for="checkbox1"></label>
-        							</span>
-        						</td>
-                    <td>{{member.firstName}}</td>
-  						      <td>{{member.lastName}}</td>
-                    <td>{{member.radioNumber}}</td>
-                    <td>{{member.stationNumber}}</td>
-        						<td>
-                      <a href="#viewEmployeeModal" class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View Member Record">&#xE417;</i></a>
-        							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit Member Record">&#xE254;</i></a>
-        							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete Member Record">&#xE872;</i></a>
-        						</td>
-        					</tr>
-        				</tbody>
-        			</table>
-        		</div>
-        	</div>
-        </div>
+      <div class="container-xl">
+      	<div class="table-responsive">
+      		<div class="table-wrapper">
+      			<div class="table-title">
+      				<div class="row">
+      					<div class="col-sm-6">
+      						<h2>View <b>Member Records</b></h2>
+      					</div>
+      					<div class="col-sm-6">
+      						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Member</span></a>
+      						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+      					</div>
+      				</div>
+      			</div>
+      			<table id="taskTable" class="sortable table table-striped table-hover">
+      				<thead>
+      					<tr>
+      						<th>
+      							<span class="custom-checkbox">
+      								<input type="checkbox" id="selectAll">
+      								<label for="selectAll"></label>
+      							</span>
+      						</th>
+      						<th>Member First Name</th>
+      						<th>Member Last Name</th>
+                  <th>Radio Number</th>
+                  <th>Station Number</th>
+      						<th>Actions</th>
+      					</tr>
+      				</thead>
+      				<tbody>
+      					<tr v-for="member in memberList" v-on:click="activeMember = member; fetchMemberCertification(); fetchCurrentCertification(); fetchExpiredCertification()">
+      						<td>
+      							<span class="custom-checkbox">
+      								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+      								<label for="checkbox1"></label>
+      							</span>
+      						</td>
+                  <td>{{member.firstName}}</td>
+						      <td>{{member.lastName}}</td>
+                  <td>{{member.radioNumber}}</td>
+                  <td>{{member.stationNumber}}</td>
+      						<td>
+                    <a href="#viewEmployeeModal" class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="View Member Record">&#xE417;</i></a>
+      							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit Member Record">&#xE254;</i></a>
+      							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete Member Record">&#xE872;</i></a>
+                    <a href="#updateEmployeeModal" class="update" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Add Certification to Member Record">	&#xe147;</i></a>
+      						</td>
+      					</tr>
+      				</tbody>
+      			</table>
+      		</div>
+      	</div>
+      </div>
+
+
+
+
+
+
+
+
+
+
 
         <!-- Add Modal HTML -->
         <div>
@@ -244,8 +255,32 @@
                 </div>
               </form>
             </div>
-          </div>
-        </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="firstName" class="required">First Name</label>
+                <!-- Add id -->
+                <input type="text" v-model="newMember.firstName" class="form-control"  placeholder="" id="firstName" required>
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="lastName" class="required">Last Name</label>
+                <!-- Add id -->
+                <input type="text" v-model="newMember.lastName" class="form-control"  placeholder="" id="lastName" required>
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="positionID" class="required">Position</label>
+                <!-- Add id -->
+                <select id="positionID" v-model="newMember.positionID" required>
+                  <option v-for="position in positionList" :value="position.positionID">
+                    {{position.positionName}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="gender">Gender</label>
 
         <!-- Edit Modal HTML -->
         <div id="editEmployeeModal" class="modal fade">
@@ -283,49 +318,433 @@
         	</div>
         </div>
 
-        <!-- Delete Modal HTML -->
-        <div id="deleteEmployeeModal" class="modal fade">
-        	<div class="modal-dialog">
-        		<div class="modal-content">
-        			<form v-on:submit.prevent = "deleteMember">
-        				<div class="modal-header">
-        					<h4 class="modal-title">Delete Employee</h4>
-        					<button type="submit" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
-        				</div>
-        				<div class="modal-body">
-        					<p>Are you sure you want to delete these Records?</p>
-        					<p class="text-warning"><small>This action cannot be undone.</small></p>
-        				</div>
-        				<div class="modal-footer">
-        					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-        					<input id="btnSave3" type="submit" class="btn btn-danger" value="Delete">
-        				</div>
-        			</form>
-        		</div>
-        	</div>
-        </div>
-      </div>
-
-      <!-- View Modal HTML -->
-      <div id="viewEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form>
-              <div class="modal-header">
-                <h4 class="modal-title">{{activeMember.firstName}} {{activeMember.lastName}}</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
-              <div class="modal-body">
-                <div><h5><i>Certifications:</i><h5></div>
-                </n>
-                <div class="form-group"> <h6 v-for="cert in membercertification">{{cert.certificationName}} </h6> </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="address">Address</label>
+                <!-- Add id -->
+                <input type="text" v-model="newMember.address" class="form-control" placeholder="" id="address">
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="dateOfBirth">Date of Birth</label>
+                <!-- Add id -->
+                <input type="date" v-model="newMember.dateOfBirth" class="form-control"  placeholder="" id="dateOfBirth">
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="workPhone">Work Phone</label>
+                <!-- Add id -->
+                <input type="number"  v-model="newMember.workPhone" class="form-control"  placeholder="" id="workPhone">
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="mobilePhone">Mobile Phone</label>
+                <!-- Add id -->
+                <input type="number" v-model="newMember.mobilePhone" class="form-control"  placeholder="" id="mobilePhone">
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="startDate" class="required">Start Date</label>
+                <!-- Add id -->
+                <input type="date" v-model="newMember.startDate" class="form-control"  placeholder="" id="startDate" required>
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="radioNumber" class="required">Radio Number</label>
+                <!-- Add id -->
+                <input type="text" v-model="newMember.radioNumber" class="form-control"  placeholder="" id="radioNumber" required>
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="stationNumber" class="required">Station Number</label>
+                <!-- Add id -->
+                <input type="text" v-model="newMember.stationNumber" class="form-control" placeholder="" id="stationNumber" required>
+              </div>
+              <div class="form-group">
+                <!-- Add label -->
+                <label for="email" class="required">Email</label>
+                <!-- Add id -->
+                <input type="email" v-model="newMember.email" class="form-control"  placeholder="" id="email" required>
+              </div>
+              <!-- <div class="form-group">
+
+                <label for="certificationID" >Certification</label>
+
+                <select id="certificationID" v-model="newMember.certificationID">
+                  <option v-for="certs in certificationList" :value="certs.certificationID">
+                    {{certs.certificationName}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+
+                <label for="testDate">Date Certified</label>
+
+                <input type="date" v-model="newMember.testDate" class="form-control"  placeholder="" id="testDate">
+              </div> -->
             </div>
-            </form>
-          </div>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+              <input id="btnSave2" type="submit" class="btn btn-success" value="Add">
+            </div>
+          </form>
         </div>
-      </div>
       </div>
     </div>
+      <!-- Edit Modal HTML -->
+      <div id="editEmployeeModal" class="modal fade">
+      	<div class="modal-dialog">
+      		<div class="modal-content">
+      			<form v-on:submit.prevent = "editMember">
+      				<div class="modal-header">
+      					<h4 class="modal-title">Edit Member</h4>
+      					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      				</div>
+      				<div class="modal-body">
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>First Name</label>
+                  <!-- Add id -->
+                  <input type="text" v-model="activeMember.firstName" class="form-control"  readonly>
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Last Name</label>
+                  <!-- Add id -->
+                  <input type="text" v-model.lazy="activeMember.lastName" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Position</label>
+                  <!-- Add id -->
+                  <select  v-model.lazy="activeMember.positionID">
+                    <option v-for="position in positionList" :value="position.positionID">
+                      {{position.positionName}}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Gender</label>
+
+                  <!-- Add id -->
+                  <select v-model.lazy="activeMember.gender">
+                    <option>
+                      Male
+                    </option>
+                    <option>
+                      Female
+                    </option>
+                    <option>
+                       Other
+                    </option>
+                  </select>
+
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Address</label>
+                  <!-- Add id -->
+                  <input type="text" v-model.lazy="activeMember.address" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Date of Birth</label>
+                  <!-- Add id -->
+                  <input type="date" v-model.lazy="activeMember.dateOfBirth" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Work Phone</label>
+                  <!-- Add id -->
+                  <input type="number" v-model.lazy="activeMember.workPhone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Mobile Phone</label>
+                  <!-- Add id -->
+                  <input type="number" v-model.lazy="activeMember.mobilePhone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Start Date</label>
+                  <!-- Add id -->
+                  <input type="date" v-model.lazy="activeMember.startDate" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Radio Number</label>
+                  <!-- Add id -->
+                  <input type="text" v-model.lazy="activeMember.radioNumber" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Station Number</label>
+                  <!-- Add id -->
+                  <input type="text" v-model.lazy="activeMember.stationNumber" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>Email</label>
+                  <!-- Add id -->
+                  <input type="email" v-model.lazy="activeMember.email" class="form-control">
+                </div>
+      				</div>
+      				<div class="modal-footer">
+      					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+      					<input id="btnSave" type="submit" class="btn btn-info" value="Save">
+      				</div>
+      			</form>
+      		</div>
+      	</div>
+      </div>
+      <!-- Delete Modal HTML -->
+      <div id="deleteEmployeeModal" class="modal fade">
+      	<div class="modal-dialog">
+      		<div class="modal-content">
+      			<form v-on:submit.prevent = "deleteMember">
+      				<div class="modal-header">
+      					<h4 class="modal-title">Delete Employee</h4>
+      					<button type="submit" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+      				</div>
+      				<div class="modal-body">
+      					<p>Are you sure you want to delete these Records?</p>
+      					<p class="text-warning"><small>This action cannot be undone.</small></p>
+      				</div>
+      				<div class="modal-footer">
+      					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+      					<input id="btnSave3" type="submit" class="btn btn-danger" value="Delete">
+      				</div>
+      			</form>
+      		</div>
+      	</div>
+      </div>
+    </div>
+
+  <!-- View Modal HTML -->
+  <div id="viewEmployeeModal" class="modal fade">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">
+            <h4 class="modal-title">{{activeMember.firstName}} {{activeMember.lastName}}</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <h5><i>Personal Information</i></h5>
+              <br>
+
+            </div>
+              <div class="row">
+                <div class="col-sm-2">
+                  <div class="view_header">Gender</div>
+                  <div class="row">
+                    <div class="col-3">
+                      {{activeMember.gender}}
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                  <div class="view_header">Address</div>
+                  <div class="row">
+                    <div class="col-8">
+                      {{activeMember.address}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                <div class="view_header">  Date of Birth </div>
+                  <div class="row">
+                    <div class="col-8">
+                      {{activeMember.dateOfBirth}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="view_header">Work Phone</div>
+                  <div class="row">
+                    <div class="col-4">
+                      {{activeMember.workPhone}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="view_header">Mobile Phone</div>
+                  <div class="row">
+                    <div class="col-4">
+                      {{activeMember.mobilePhone}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+
+
+
+
+              <div class="row">
+
+                <div class="col-sm-2">
+                  <div class="view_header">Radio Number</div>
+                  <div class="row">
+                    <div class="col-8">
+                      {{activeMember.radioNumber}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="view_header">Station Number</div>
+                  <div class="row">
+                    <div class="col-8">
+                      {{activeMember.stationNumber}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <div class="view_header">Email</div>
+                  <div class="row">
+                    <div class="col-8">
+                      <a v-bind:href="'mailto:' + activeMember.email">{{activeMember.email}}</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+
+
+            <br><br><br>
+
+            <div class="row">
+              <div class="col-12">
+                <div>
+                  <h5><i>Certifications</i></h5>
+                  <br>
+                </div>
+                <div class="row">
+                  <div class="col-5">
+                    <table class="sortable table table-striped table-hover">
+              				<thead>
+                        <tr>
+                          <td colspan="3">Current Certifications</td>
+                        </tr>
+              					<tr>
+              						<th>Certification</th>
+              						<th>Date Earned</th>
+                          <th>Expiration Date</th>
+              					</tr>
+              				</thead>
+              				<tbody class="current">
+              					<tr v-for="cert1 in memberCurrent">
+                          <td>{{cert1.certificationName}}</td>
+        						      <td>{{cert1.testDate}}</td>
+                          <td>{{cert1.expirationDate}}</td>
+              					</tr>
+              				</tbody>
+              			</table>
+                  </div>
+                  <div class="col-1"></div>
+                  <div class="col-5">
+                    <table class="sortable table table-striped table-hover">
+              				<thead>
+                        <tr>
+                          <td colspan="3">Expired Certifications</td>
+                        </tr>
+              					<tr>
+              						<th>Certification</th>
+              						<th>Date Earned</th>
+                          <th>Expiration Date</th>
+              					</tr>
+              				</thead>
+              				<tbody class="expired">
+              					<tr v-for="cert2 in memberExpired">
+                          <td>{{cert2.certificationName}}</td>
+        						      <td>{{cert2.testDate}}</td>
+                          <td>{{cert2.expirationDate}}</td>
+              					</tr>
+              				</tbody>
+              			</table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+        </form>
+      </div>
+    </div>
+
+
+  <!-- Certification added to member Modal HTML -->
+  <div id="updateEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form v-on:submit.prevent = "updateMember">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Member Certification</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <!-- Add label -->
+              <label for="certificationID" >Certification</label>
+              <!-- Add id -->
+              <select v-model="activeMember.certificationID" placeholder = "">
+                <option v-for="certs in certificationList" :value="certs.certificationID">
+                  {{certs.certificationName}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <!-- Add label -->
+              <label for="testDate">Date Certified</label>
+              <!-- Add id -->
+              <input type="date" v-model="activeMember.testDate" class="form-control"  placeholder="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input id="btnSave4" type="submit" class="btn btn-info" value="Add">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>
@@ -375,13 +794,18 @@
         $('#editEmployeeModal').modal('hide');
         });
 
-      $('#btnSave2').click(function() {
-        $('#addEmployeeModal').modal('hide');
-        });
+      // $('#btnSave2').click(function() {
+      //   $('#addEmployeeModal').modal('hide');
+      //   });
 
       $('#btnSave3').click(function() {
         $('#deleteEmployeeModal').modal('hide');
         });
+
+      $('#btnSave4').click(function() {
+        $('#updateEmployeeModal').modal('hide');
+        });
+
     </script>
   </body>
 </html>
