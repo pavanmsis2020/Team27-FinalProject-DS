@@ -1,7 +1,11 @@
 var app = new Vue({
   el: '#certifications_report',
   data:{
-    certificationReport: []
+    certificationReport: [],
+    criteria:{
+      name:''
+      // radio:''
+    }
   },
 
   created(){

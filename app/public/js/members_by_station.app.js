@@ -1,7 +1,11 @@
 var app = new Vue({
   el: '#members_by_station',
   data:{
-    memberTwoList: []
+    memberTwoList: [],
+    selection:{
+      station:''
+      // radio:''
+    }
   },
 
   created(){
