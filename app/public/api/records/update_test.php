@@ -15,8 +15,6 @@ require 'common.php';
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 
-
-
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt2 = $db->prepare(
@@ -28,8 +26,6 @@ $stmt2->execute([
   $_POST['personID'],
   $_POST['certificationID'],
   $_POST['testDate']
-
-
 ]);
 
 // If needed, get auto-generated PK from DB

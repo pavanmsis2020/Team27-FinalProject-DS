@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="data:;base64,=">
 
-    <title>OCFR - Home</title>
+    <title>OCFR - View Certifications</title>
   </head>
 
   <body>
@@ -43,8 +43,7 @@
                 Member Records
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="view_members.html">View</a>
-                <a class="dropdown-item" href="update_members.html">Update</a>
+                <a class="dropdown-item" href="view_members.html">View and Update</a>
                 <!-- <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a> -->
               </div>
@@ -54,8 +53,7 @@
                 Certifications
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="view_certifications.html">View</a>
-                <a class="dropdown-item" href="update_certification.html">Update</a>
+                <a class="dropdown-item" href="view_certifications.html">View and Update</a>
                 <!-- <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a> -->
               </div>
@@ -67,17 +65,13 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="expired_certifications.html">Expired Certifications</a>
                 <a class="dropdown-item" href="members_by_station.html">Members by Station and Radio Number</a>
-                <!-- <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a> -->
               </div>
             </li>
           </ul>
         </div>
       </nav>
 
-        <!-- Change the active and insert page links for subsequent nav links -->
-
-        <div id="certifications">
+      <div id="certifications">
         <div class="container-xl">
         	<div class="table-responsive">
         		<div class="table-wrapper">
@@ -129,9 +123,7 @@
         	</div>
         </div>
 
-
-
-  <!-- Add Modal HTML -->
+        <!-- Add Modal HTML -->
         <div>
           <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
@@ -170,6 +162,7 @@
               </div>
             </div>
           </div>
+
           <!-- Edit Modal HTML -->
           <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
@@ -201,6 +194,7 @@
               </div>
             </div>
           </div>
+
           <!-- Delete Modal HTML -->
           <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
@@ -299,12 +293,8 @@
         </footer>
       </div>
 
-
-
-
     <!-- Optional JavaScript -->
     <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -314,7 +304,6 @@
     <script>
       new Tablesort(document.getElementById('taskTable'));
     </script>
-
 
     <script>
       $(document).ready(function(){
@@ -352,8 +341,6 @@
       $('#btnSave3').click(function() {
         $('#deleteEmployeeModal').modal('hide');
         });
-
-
     </script>
   </body>
 </html>

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="data:;base64,=">
 
-    <title>OCFR - Expired Certifications</title>
+    <title>OCFR - Update Certifications</title>
   </head>
 
   <body>
@@ -43,9 +43,8 @@
                 Member Records
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="view_members.html">View and Update</a>
-                <!-- <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a> -->
+                <a class="dropdown-item" href="view_members.html">View</a>
+                <a class="dropdown-item" href="update_members.html">Update</a>
               </div>
             </li>
             <li class="nav-item dropdown active">
@@ -53,9 +52,8 @@
                 Certifications
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="view_certifications.html">View and Update</a>
-                <!-- <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a> -->
+                <a class="dropdown-item" href="view_certifications.html">View</a>
+                <a class="dropdown-item" href="update_certification.html">Update</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -71,63 +69,55 @@
         </div>
       </nav>
 
-      <div id="certifications_report">
-        <div class="container-xl">
-          <div class="table-responsive">
-            <div class="table-wrapper">
-              <div class="table-title">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <h2>View <b>Expired Certifications</b></h2>
-                  </div>
-                </div>
-              </div>
-              <table id="taskTable" class="sortable table table-striped table-hover">
-                <thead>
-                  <tr>
+      <div>
+        <main class="row">
+            <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Update Certifications</h1>
+            <!-- Search form -->
+          <form method="post" v-on:submit="createCertification" class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+              aria-label="Search">
 
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Certification Name</th>
-                      <th>Expirattion Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="Certifications in certificationReport">
-
-                    <td>{{Certifications.firstName}}</td>
-                    <td>{{Certifications.lastName}}</td>
-                    <td>{{Certifications.certificationName}}</td>
-                    <td>{{Certifications.expirationDate}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="form-group">
+            <!-- Add label -->
+            <label for="certificationAgency">Certification Agency</label>
+            <!-- Add id -->
+            <input type="text" v-model = "newCertification.certificationAgency" class="form-control" id="certificationAgency" placeholder="">
           </div>
-        </div>
-      </main>
-      <footer class="row">
-          <p class="footer_words"> &#169; Oconee County Fire Department</p>
-      </footer>
-    </div>
+          <div class="form-group">
+            <!-- Add label -->
+            <label for="certificationName">Certification Name</label>
+            <!-- Add id -->
+            <input type="text" v-model = "newCertification.certificationName" class="form-control" id="certificationName" placeholder="">
+          </div>
+          <div class="form-group">
+            <!-- Add label -->
+            <label for="defaultExpiration">Default Expiration</label>
+            <!-- Add id -->
+            <input type="text" v-model = "newCertification.defaultExpiration" class="form-control" id="defaultExpiration" placeholder="">
+          </div>
 
+          <div class="button_group">
+              <button type="submit" class="view_buttons" id="submitNewCertification">Add New</button>
+          </div>
+          <div class="button_group">
+              <a href="#" class="view_buttons">Delete</a>
+          </div>
+          </form>
+        </main>
+        <footer class="row">
+            <p class="footer_words"> &#169; Oconee County Fire Department</p>
+        </footer>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- Source: https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.28.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/certifications_report.app.js"></script>
-    <script src="js/tablesort.min.js"></script>
-    <script>
-      new Tablesort(document.getElementById('taskTable'));
-    </script>
+    <script src="js/update_certification.app.js"></script>
   </body>
 </html>

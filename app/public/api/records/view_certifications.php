@@ -21,7 +21,6 @@ if (isset($_GET['testID'])) {
   $vars = [ $_GET['testID'] ];
 }
 
-
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 

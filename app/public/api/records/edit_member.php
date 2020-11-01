@@ -20,8 +20,7 @@ $db = DbConnection::getConnection();
 $stmt2 = $db->prepare(
   'UPDATE Person
     SET firstName = ?, lastName = ?, positionID = ?, gender = ?, address = ?, dateOfBirth = ?, workPhone = ?, mobilePhone = ?, startDate = ?, radioNumber = ?, stationNumber = ?, email = ?
-    WHERE personID = ?;')
-    ;
+    WHERE personID = ?;');
 
   $stmt2->execute([
   $_POST['firstName'],
@@ -37,7 +36,6 @@ $stmt2 = $db->prepare(
   $_POST['stationNumber'],
   $_POST['email'],
   $_POST['personID']
-
 ]);
 
 // If needed, get auto-generated PK from DB
