@@ -26,10 +26,6 @@ $stmt2->execute([
   $_POST['certificationID']
 ]);
 
-
-// If needed, get auto-generated PK from DB
-
-
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it

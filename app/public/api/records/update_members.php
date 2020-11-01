@@ -35,14 +35,10 @@ $stmt->execute([
   $_POST['radioNumber'],
   $_POST['stationNumber'],
   $_POST['email']
-
 ]);
-
-
 
 // If needed, get auto-generated PK from DB
 $pk = $db->lastInsertId();
-
 
 $stmt2 = $db->prepare(
   'INSERT INTO Test (personID, certificationID, testDate)
@@ -53,8 +49,6 @@ $stmt2->execute([
   $pk,
   $_POST['certificationID'],
   $_POST['testDate']
-
-
 ]);
 
 // Step 4: Output

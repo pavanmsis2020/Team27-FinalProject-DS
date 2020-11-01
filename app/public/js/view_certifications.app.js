@@ -10,19 +10,15 @@ var app = new Vue({
 
   created(){
     this.fetchCertification();
-
   },
 
   methods: {
-
     fetchCertification: function(){
       fetch('api/records/view_certifications.php')
       .then(response => response.json())
       .then(data => {
         this.certificationList = data;
         console.log(data);
-
-
       });
     },
 
@@ -34,12 +30,10 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-
       .then(response => response.json())
       .then(data => {
         this.certificationByPerson = data;
         console.log(data);
-
       });
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);
@@ -53,12 +47,9 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);
     },
-
-
 
     newCertificationData(){
       return {
@@ -68,7 +59,6 @@ var app = new Vue({
       }
     },
 
-
     createCertification(){
       fetch('api/records/update_certification.php',{
         method: 'POST',
@@ -77,15 +67,9 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-
       console.log("creating (POSTing)...!");
       console.log(this.newCertification);
     },
-
-
-
-
-
 
     fetchPosition: function(){
       fetch('api/records/view_positions.php')
@@ -93,12 +77,8 @@ var app = new Vue({
       .then(data => {
         this.positionList = data;
         console.log(data);
-
-
       });
     },
-
-
 
     deleteCertification(){
       fetch('api/records/delete_certification.php',{
@@ -108,7 +88,6 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-
       console.log("creating (POSTing)...!");
       console.log(this.activeCertification);
     },
@@ -119,9 +98,6 @@ var app = new Vue({
       .then(data => {
         this.certificationList = data;
         console.log(data);
-
-
-
       });
     }
   }

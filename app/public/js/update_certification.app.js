@@ -6,9 +6,6 @@ var app = new Vue({
   },
 
   methods: {
-
-
-
     createCertification(){
       fetch('api/records/update_certification.php',{
         method: 'POST',
@@ -17,13 +14,7 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-
-
       console.log(this.newCertification);
-    },
-},
-
-
-
-
+    }
+  }
 })

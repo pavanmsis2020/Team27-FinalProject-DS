@@ -4,19 +4,15 @@ BUS-X 501 - Data & Systems - Final Project
 Professor Tom Gregory
 */
 
-
 CREATE DATABASE ocfr;
 
-
 USE ocfr;
-
 
 CREATE TABLE Position (
     positionID INT AUTO_INCREMENT NOT NULL,
     positionName VARCHAR(255),
     PRIMARY KEY(positionID)
 );
-
 
 /* Source: https://www.w3schools.com/sql/sql_foreignkey.asp */
 CREATE TABLE Person (
@@ -39,7 +35,6 @@ CREATE TABLE Person (
     FOREIGN KEY(positionID) REFERENCES Position (positionID) ON DELETE CASCADE
 );
 
-
 CREATE TABLE Certification(
     certificationID INT AUTO_INCREMENT,
     certificationAgency VARCHAR(255),
@@ -48,7 +43,6 @@ CREATE TABLE Certification(
     defaultExpiration INT,
     PRIMARY KEY(certificationID)
 );
-
 
 CREATE TABLE Test(
     testID INT AUTO_INCREMENT NOT NULL,
@@ -60,23 +54,18 @@ CREATE TABLE Test(
     FOREIGN KEY (certificationID) REFERENCES Certification (certificationID) ON DELETE CASCADE
 );
 
-
 /* OPTIONAL */
 CREATE TABLE User(
     email VARCHAR(255),
     password VARCHAR(255)
 );
 
-
-
-/* Source used: https://www.w3schools.com/sql/func_mysql_date_add.asp*/
+/* Source: https://www.w3schools.com/sql/func_mysql_date_add.asp*/
 CREATE VIEW certExpirationView
 AS
 SELECT Test.testID, Test.personID, Test.testDate, Person.firstName, Person.lastName, Certification.certificationName, Certification.defaultExpiration, DATE_ADD(Test.testDate, INTERVAL Certification.defaultExpiration YEAR) AS expirationDate
 FROM Test, Person, Certification
-WHERE Test.personID = Person.personID AND Test.certificationID = Certification.certificationID
-;
-
+WHERE Test.personID = Person.personID AND Test.certificationID = Certification.certificationID;
 
 CREATE VIEW memberCertificationsView
 AS
@@ -87,7 +76,6 @@ AND Certification.certificationID = Test.certificationID;
 
 /* Dummy Data */
 /* Source: https://www.mockaroo.com/ */
-
 INSERT INTO Position (positionID, positionName) VALUES (1, 'Software Engineer III');
 INSERT INTO Position (positionID, positionName) VALUES (2, 'Information Systems Manager');
 INSERT INTO Position (positionID, positionName) VALUES (3, 'Physical Therapy Assistant');
@@ -130,7 +118,6 @@ INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, 
 INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (19, 'Milly', 'Fletham', '19', 'Female', '818 Holy Cross Alley', STR_TO_DATE('4/15/1955', '%m/%d/%Y'), '8482572358', '9796274711', STR_TO_DATE('7/16/2020', '%m/%d/%Y'), null, '8441456887', '493542085', 'mflethami@smugmug.com', false);
 INSERT INTO Person (personID, firstName, lastName, positionID, gender, address, dateOfBirth, workPhone, mobilePhone, startDate, endDate, radioNumber, stationNumber, email, isActive) VALUES (20, 'Courtney', 'Savage', '20', 'Female', '9 Sommers Terrace', STR_TO_DATE('3/3/1978', '%m/%d/%Y'), '7018471607', '8016986332', STR_TO_DATE('10/6/2019', '%m/%d/%Y'), STR_TO_DATE('10/12/2019', '%m/%d/%Y'), '9615059560', '561306181', 'csavagej@de.vu', true);
 
-
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (1, 'Lowe Group', 'Research Associate', 63);
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (2, 'Douglas Group', 'Office Assistant II', 15);
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (3, 'Baumbach-Beer', 'Civil Engineer', 53);
@@ -151,8 +138,6 @@ INSERT INTO Certification (certificationID, certificationAgency, certificationNa
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (18, 'Strosin LLC', 'Mechanical Systems Engineer', 18);
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (19, 'Effertz Inc', 'Engineer II', 8);
 INSERT INTO Certification (certificationID, certificationAgency, certificationName, defaultExpiration) VALUES (20, 'Hettinger-Hettinger', 'Web Developer IV', 53);
-
-
 
 INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (1, 20, 1, STR_TO_DATE('6/30/2020', '%m/%d/%Y'));
 INSERT INTO Test (testID, personID, certificationID, testDate) VALUES (2, 19, 2, STR_TO_DATE('3/4/2020', '%m/%d/%Y') );

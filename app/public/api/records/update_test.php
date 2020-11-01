@@ -28,12 +28,7 @@ $stmt2->execute([
   $pk,
   $_POST['certificationID'],
   $_POST['testDate']
-
-
 ]);
-
-// If needed, get auto-generated PK from DB
-
 
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
