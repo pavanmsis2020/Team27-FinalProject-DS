@@ -23,15 +23,18 @@ var app = new Vue({
     certificationList: [],
     memberExpired: [],
     memberCurrent: []
+
   },
 
   created(){
     this.fetchMember();
     this.fetchPosition();
     this.fetchCertification();
+
   },
 
   methods: {
+
     fetchExpiredCertification(){
       fetch('api/records/view_member_expired.php',{
         method: 'POST',
@@ -40,10 +43,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then(response => response.json())
       .then(data => {
         this.memberExpired = data;
         console.log(data);
+
       });
     },
 
@@ -55,6 +60,7 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then(response => response.json())
       .then(data => {
         this.memberCurrent = data;
@@ -79,6 +85,8 @@ var app = new Vue({
         });
       console.log("creating (POSTing)...!");
       console.log(this.activeMember);
+
+
     },
 
     fetchCertification: function(){
@@ -87,6 +95,8 @@ var app = new Vue({
       .then(data => {
         this.certificationList = data;
         console.log(data);
+
+
       });
     },
 
@@ -98,13 +108,16 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then(response => response.json())
       .then(data => {
         this.membercertification = data;
         console.log(data);
+
       });
       console.log(this.activeMember);
     },
+
 
     editMember(){
       fetch('api/records/edit_member.php',{
@@ -114,9 +127,12 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       console.log("creating (POSTing)...!");
       console.log(this.activeMember);
     },
+
+
 
     newMemberData(){
       return {
@@ -133,9 +149,12 @@ var app = new Vue({
         stationNumber: "",
         email: "",
         certificationID: "",
-        testDate: ""
+        testDate: "",
+
       }
     },
+
+
 
     activeMemberData(){
       return {
@@ -156,8 +175,10 @@ var app = new Vue({
         stationNumber: "",
         email: "",
         certificationID: ""
+
       }
     },
+
 
     createMember(){
       fetch('api/records/update_members.php',{
@@ -167,6 +188,7 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
+
       .then( response => response.json() )
         .then( json => {
           console.log ("Returned from post:", json);
@@ -177,14 +199,23 @@ var app = new Vue({
       console.log(this.newMember);
     },
 
+
+
+
+
+
     fetchPosition: function(){
       fetch('api/records/view_positions.php')
       .then(response => response.json())
       .then(data => {
         this.positionList = data;
         console.log(data);
+
+
       });
     },
+
+
 
     deleteMember(){
       fetch('api/records/delete_member.php',{
@@ -201,6 +232,7 @@ var app = new Vue({
           this.activeMember = this.activeMemberData();
           console.log(this.memberList);
         });
+
       console.log("creating (POSTing)...!");
     },
 
@@ -210,7 +242,12 @@ var app = new Vue({
       .then(data => {
         this.memberList = data;
         console.log(data);
+
+
+
       });
     }
   }
+
+
 })

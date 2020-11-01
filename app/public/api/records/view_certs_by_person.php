@@ -6,13 +6,19 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
+
 $stmt = $db->prepare('SELECT * FROM memberCertificationsView
 WHERE certificationID = ?;');
 $stmt->execute([
   $_POST['certificationID']
 ]);
 
+
 $memberCertifications = $stmt->fetchAll();
+
+
+
+
 
 // Step 3: Convert to JSON
 $json = json_encode($memberCertifications, JSON_PRETTY_PRINT);

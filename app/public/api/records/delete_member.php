@@ -26,6 +26,7 @@ $stmt2->execute([
   $_POST['personID']
 ]);
 
+
 $stmt3 = $db->prepare(
   'DELETE FROM Person
     WHERE personID = ?;'
@@ -34,6 +35,10 @@ $stmt3 = $db->prepare(
 $stmt3->execute([
   $_POST['personID']
 ]);
+
+
+// If needed, get auto-generated PK from DB
+
 
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,

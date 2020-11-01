@@ -6,15 +6,19 @@ var app = new Vue({
 
   created(){
     this.fetchMemberTwo();
+
   },
 
   methods: {
+
     fetchMemberTwo: function(){
       fetch('api/reports/members_by_station.php')
       .then(response => response.json())
       .then(data => {
         this.memberTwoList = data;
         console.log(data);
+
+
       });
     }
   }

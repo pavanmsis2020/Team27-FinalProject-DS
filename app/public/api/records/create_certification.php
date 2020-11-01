@@ -25,7 +25,8 @@ $stmt2 = $db->prepare(
 $stmt2->execute([
   $_POST['certificationAgency'],
   $_POST['certificationName'],
-  $_POST['defaultExpiration']
+  $_POST['defaultExpiration'],
+
 ]);
 
 // If needed, get auto-generated PK from DB
