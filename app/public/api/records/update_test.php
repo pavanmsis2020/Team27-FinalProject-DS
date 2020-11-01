@@ -14,7 +14,7 @@ require 'common.php';
 
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
-$pk = $db->lastInsertId();
+
 
 
 // Step 2: Create & run the query
@@ -25,7 +25,7 @@ $stmt2 = $db->prepare(
 );
 
 $stmt2->execute([
-  $pk,
+  $_POST['personID'],
   $_POST['certificationID'],
   $_POST['testDate']
 
@@ -33,10 +33,10 @@ $stmt2->execute([
 ]);
 
 // If needed, get auto-generated PK from DB
-
+$pk = $db->lastInsertId();
 
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-header('Content-Type: application/json');
-echo $json;
+header('HTTP/1.1 303 See Other');
+header('Location: ../records/view_certs_by_person.php/?testID=' . $pk);
