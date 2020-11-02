@@ -70,14 +70,14 @@
           </ul>
         </div>
       </nav>
-
+<!-- Table Format Source:https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=crud-data-table-for-database-with-modal-form  -->
       <div id="certifications_report">
       <div class="container-xl">
         <div class="criteria">
-          <h8>Filter by Certification Name:</h8></br>
+          <h6>Filter by Certification Name:</h6>
           <select v-model="criteria.name">
-            <option value="">All</option>
-            <option v-for="Certifications in certificationReport">{{Certifications.certificationName}}</option>
+            <option value="All">All</option>
+            <option v-for="certificationName in cert">{{certificationName}}</option>
           </select>
         </div>
         <div class="table-responsive">
@@ -100,7 +100,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="Certifications in certificationReport" v-if="criteria.name=='' || criteria.name==Certifications.certificationName">
+                <tr v-for="Certifications in certificationReport" v-if="criteria.name=='All' || criteria.name==Certifications.certificationName">
 
                   <td>{{Certifications.firstName}}</td>
                   <td>{{Certifications.lastName}}</td>

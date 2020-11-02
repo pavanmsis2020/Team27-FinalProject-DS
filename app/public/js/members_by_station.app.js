@@ -2,10 +2,7 @@ var app = new Vue({
   el: '#members_by_station',
   data:{
     memberTwoList: [],
-    selection:{
-      station:''
-      // radio:''
-    }
+    selection:{}
   },
 
   created(){
@@ -23,7 +20,17 @@ var app = new Vue({
         console.log(data);
 
 
+
       });
     }
+  },
+
+// source:https://stackoverflow.com/questions/41735043/remove-repeated-elements-from-v-for-in-vuejs
+  computed: {
+  stations () {
+    return [...new Set(this.memberTwoList.map(({ stationNumber }) => stationNumber))]
+    }
   }
+
+
 })

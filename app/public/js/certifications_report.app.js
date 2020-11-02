@@ -2,10 +2,7 @@ var app = new Vue({
   el: '#certifications_report',
   data:{
     certificationReport: [],
-    criteria:{
-      name:''
-      // radio:''
-    }
+    criteria:{}
   },
 
   created(){
@@ -25,5 +22,12 @@ var app = new Vue({
 
       });
     }
-  }
+  },
+
+  // source:https://stackoverflow.com/questions/41735043/remove-repeated-elements-from-v-for-in-vuejs
+    computed: {
+    cert () {
+      return [...new Set(this.certificationReport.map(({ certificationName }) => certificationName))]
+      }
+    }
 })

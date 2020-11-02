@@ -75,14 +75,14 @@
         </div>
       </nav>
 
-
+<!-- Table Format Source:https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=crud-data-table-for-database-with-modal-form  -->
     <div id="members_by_station">
     <div class="container-xl">
       <div class="selection">
-        <h8>Filter by Station Number:</h8></br>
+        <h6>Filter by Station Number:</h6>
         <select v-model="selection.station">
-          <option value="">All</option>
-          <option v-for="membertwo in memberTwoList">{{membertwo.stationNumber}}</option>
+          <option value="All">All</option>
+          <option v-for="stationNumber in stations">{{stationNumber}}</option>
         </select>
         <!-- <select v-model="selection.radio">
           <option value="">All</option>
@@ -105,14 +105,16 @@
                 <th>Last Name</th>
                 <th>Radio Number</th>
                 <th>Station Number</th>
+                <th>Email</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="membertwo in memberTwoList" v-if="selection.station=='' || selection.station==membertwo.stationNumber">
+              <tr v-for="membertwo in memberTwoList" v-if="selection.station=='All' || selection.station==membertwo.stationNumber">
                 <td>{{membertwo.firstName}}</td>
                 <td>{{membertwo.lastName}}</td>
                 <td>{{membertwo.radioNumber}}</td>
                 <td>{{membertwo.stationNumber}}</td>
+                <td><a v-bind:href="'mailto:' + membertwo.email">{{membertwo.email}}</a></td>
               </tr>
             </tbody>
           </table>
