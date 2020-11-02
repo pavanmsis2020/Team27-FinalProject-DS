@@ -19,7 +19,7 @@ $db = DbConnection::getConnection();
 // Note the use of parameterized statements to avoid injection
 $stmt2 = $db->prepare(
   'UPDATE Person
-    SET firstName = ?, lastName = ?, positionID = ?, gender = ?, address = ?, dateOfBirth = ?, workPhone = ?, mobilePhone = ?, startDate = ?, radioNumber = ?, stationNumber = ?, email = ?
+    SET firstName = ?, lastName = ?, positionID = ?, gender = ?, address = ?, dateOfBirth = ?, workPhone = ?, mobilePhone = ?, startDate = ?, endDate = ?, radioNumber = ?, stationNumber = ?, email = ?
     WHERE personID = ?;')
     ;
 
@@ -33,6 +33,7 @@ $stmt2 = $db->prepare(
   $_POST['workPhone'],
   $_POST['mobilePhone'],
   $_POST['startDate'],
+  $_POST['endDate'],
   $_POST['radioNumber'],
   $_POST['stationNumber'],
   $_POST['email'],
