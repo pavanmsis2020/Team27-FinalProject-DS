@@ -4,15 +4,10 @@ class DbConnection
 {
   protected static $connection;
 
-  // function __create() {
-  //
-  // }
-
     static function getConnection() {
       if (self::$connection) {
         return self::$connection;
       }
-
       try {
           $dsn = 'mysql:host='.getenv('MYSQL_HOST').';dbname='.getenv('MYSQL_DATABASE').';charset=utf8';
           error_log($dsn);

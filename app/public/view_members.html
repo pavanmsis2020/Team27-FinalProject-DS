@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="data:;base64,=">
 
-    <title>OCFR - Home</title>
+    <title>OCFR - View Members</title>
   </head>
 
   <body>
@@ -43,17 +43,19 @@
                 Member Records
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="view_members.html">View and Update</a>
+                <a class="dropdown-item" href="view_members.html">View</a>
+                <a class="dropdown-item" href="update_members.html">Update</a>
                 <!-- <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a> -->
               </div>
             </li>
-            <li class="nav-item dropdown active">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Certifications
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="view_certifications.html">View and Update</a>
+                <a class="dropdown-item" href="view_certifications.html">View</a>
+                <a class="dropdown-item" href="update_certification.html">Update</a>
                 <!-- <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a> -->
               </div>
@@ -622,22 +624,9 @@
       </div>
     </div>
   </div>
-
-
-
   </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
       <footer class="row">
           <p class="footer_words"> &#169; Oconee County Fire Department</p>
@@ -694,11 +683,9 @@
       $('#btnSave3').click(function() {
         $('#deleteEmployeeModal').modal('hide');
         });
-
       $('#btnSave4').click(function() {
         $('#updateEmployeeModal').modal('hide');
         });
-
     </script>
   </body>
 </html>
