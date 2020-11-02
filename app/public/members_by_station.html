@@ -80,6 +80,17 @@
       
     <div id="members_by_station">
     <div class="container-xl">
+      <div class="selection">
+        <h8>Filter by Station Number:</h8></br>
+        <select v-model="selection.station">
+          <option value="">All</option>
+          <option v-for="membertwo in memberTwoList">{{membertwo.stationNumber}}</option>
+        </select>
+        <!-- <select v-model="selection.radio">
+          <option value="">All</option>
+          <option v-for="membertwo in memberTwoList">{{membertwo.radioNumber}}</option>
+        </select> -->
+      </div>
       <div class="table-responsive">
         <div class="table-wrapper">
           <div class="table-title">
@@ -99,7 +110,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="membertwo in memberTwoList">
+              <tr v-for="membertwo in memberTwoList" v-if="selection.station=='' || selection.station==membertwo.stationNumber">
                 <td>{{membertwo.firstName}}</td>
                 <td>{{membertwo.lastName}}</td>
                 <td>{{membertwo.radioNumber}}</td>
