@@ -93,7 +93,7 @@
 
 
 
-
+<!-- Table Format Source:https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=crud-data-table-for-database-with-modal-form  -->
 
       <div id="members">
       <div class="container-xl">
@@ -250,9 +250,9 @@
               </div>
               <div class="form-group">
                 <!-- Add label -->
-                <label for="stationNumber" class="required">Station Number</label>
+                <label for="stationNumber">Station Number</label>
                 <!-- Add id -->
-                <input type="text" v-model="newMember.stationNumber" class="form-control" placeholder="" id="stationNumber" required>
+                <input type="number" v-model="newMember.stationNumber" class="form-control" placeholder="" id="stationNumber">
               </div>
               <div class="form-group">
                 <!-- Add label -->
@@ -364,6 +364,12 @@
                   <label>Start Date</label>
                   <!-- Add id -->
                   <input type="date" v-model.lazy="activeMember.startDate" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- Add label -->
+                  <label>End Date</label>
+                  <!-- Add id -->
+                  <input type="date" v-model.lazy="activeMember.endDate" class="form-control">
                 </div>
                 <div class="form-group">
                   <!-- Add label -->
